@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-This is Nikolay, I am excited to redo this assigment. This is Amin.	
+This is just amin	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
