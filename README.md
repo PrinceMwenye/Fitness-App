@@ -7,6 +7,8 @@
 ## General Info
 This browser based web application to ...
 Hellooooo, Prince's better version
+Im on a new level and l love 
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
