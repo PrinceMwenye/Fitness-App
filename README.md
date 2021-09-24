@@ -7,6 +7,9 @@
 ## General Info
 This browser based web application to ...
 This is just amin...This is Nikolay	
+Hellooooo, Prince's better version
+Im on a new level and l love 
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
