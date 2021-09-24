@@ -6,7 +6,7 @@
 
 ## General Info
 This browser based web application to ...
-This is just amin...	
+This is just amin...This is Nikolay	
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
