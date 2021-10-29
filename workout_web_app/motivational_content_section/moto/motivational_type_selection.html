@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="motivational_type_selection.CSS">
+
+    <style>
+        * {
+            overflow-x: hidden;
+            /* Hide horizontal scrollbar */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Chose motivational Type:</h1>
+
+    <div class="grid-container">
+
+        <!-- <div class="grid-item grid-item-0"><h1>Chose your motivational Type:</h1><div> -->
+
+        <div class="grid-item grid-item-1"><button onclick="directToVideoPage()">Video</button></div>
+
+        <div class="grid-item grid-item-2"><button onclick="directToAudioPage()">Audio</button></div>
+
+        <div class="grid-item grid-item-3"><button onclick="directToArtilcePage()">Article</button></div>
+
+    </div>
+
+    <!-- <a href="motivational_article">Article</a> -->
+
+    <!-- <a href="motivational_audio">Audio</a> -->
+
+    <!-- <a href="motivational_video">Video</a> -->
+
+</body>
+
+<script>
+    function directToVideoPage() {
+        //   location.replace("https://www.w3schools.com")
+        window.location.href = "video_page.html"
+    }
+
+    function directToAudioPage() {
+        //   location.replace("https://www.w3schools.com")
+        window.location.href = "audio_page.html"
+    }
+
+    function directToArtilcePage() {
+        //   location.replace("https://www.w3schools.com")
+        window.location.href = "artilce_page.html"
+    }
+</script>
+
+</html>
+
+<!-- window.location.href = "http://www.w3schools.com" -->
