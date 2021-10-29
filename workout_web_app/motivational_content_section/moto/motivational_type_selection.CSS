@@ -26,6 +26,7 @@ h1{
 	background-color: blue;
 	grid-gap: 1%;
 	margin: 0 2%;
+	overflow-x: hidden;
 }
 
 .grid-item{
@@ -35,6 +36,7 @@ h1{
 	border: 3px soild black;
 	padding-bottom: 100px;
 	margin-right: 2%;
+	
 
 
 }
