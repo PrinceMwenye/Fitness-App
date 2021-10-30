@@ -6,6 +6,8 @@
 
 body{
 	background-color: blue;
+
+	height: 800px;
 }
 
 h1{
@@ -26,7 +28,7 @@ h1{
 	background-color: blue;
 	grid-gap: 1%;
 	margin: 0 2%;
-	overflow-x: hidden;
+	overflow: scroll;
 }
 
 .grid-item{
