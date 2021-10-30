@@ -1,0 +1,19 @@
+.location {
+    padding-top: 400px;
+}
+
+.footer {
+    padding-top: 100px;
+}
+
+.work-org {
+    width: 50%;
+    height: 400px;
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    padding-top: 90px;
+    align-items: center;
+}
+
+#work {}
