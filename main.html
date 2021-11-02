@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid justify-content-between">
-                <a class="navbar-brand" href="#">Fitness4all</a>
+                <a class="navbar-brand" href="main.html">Fitness4all</a>
                 <i class="material-icons" style="color: white">fitness_center</i>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -46,13 +46,13 @@
                                 <a class="nav-link" href="#">My work-out</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My motivation</a>
+                                <a class="nav-link" href="workout_web_app/motivational_content_section/moto/motivational_type_selection.html">My motivation</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">My settings</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Explore locations</a>
+                                <a class="nav-link" href="location.html">Explore locations</a>
                             </li>
                         </ul>
                     </div>
@@ -64,7 +64,7 @@
     <main style="margin-top: 25%;">
         <h1 class="text-black text-center">This is main page</h1>
         <div class="album py-5">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
                         <div class="card shadow-sm">
@@ -160,6 +160,14 @@
             </ul>
         </footer>
     </div>
+
+    <script>
+        function showPopUp(){
+            var popup = document.getElementById("");
+            popup.classList.toggle("show");
+        }
+    </script>
+
 </body>
 
 </html>
