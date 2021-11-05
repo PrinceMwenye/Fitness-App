@@ -5,10 +5,10 @@
     <title>Fitness4all</title>
     <meta name="comp1800 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- Bootstrap Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
@@ -60,85 +60,133 @@
         </div>
     </nav>
 
-    <h1>Explore different ways to work out</h1>
+    <main>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-sm">
+        <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel" style="margin-top: 55px;">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img width="100%" height="500px" src="images/indexPicture.png">
+              <div class="container">
+                <div class="carousel-caption text-start">
+                  <h1 style="text-shadow: 2px 2px black;">Fitness4all is here for you</h1>
+                  <p style="text-shadow: 2px 2px black;">Have you ever felt unmotivated to work out? Do you have difficulty working out during the pandemic?
 
-            <div class="card" style="width: 20rem; height:25rem">
-              <img src="images/runa.jpg" class="card-img-top card_images" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Run through the trails</h5>
-
-                <a href="#" class="btn btn-primary">Check it out</a>
-              </div>
-            <div class="col-sm">
-
-                <div class="card" style="width: 20rem; height:25rem">
-                    <img src="images/runa.jpg" class="card-img-top card_images" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Run through the trails</h5>
-
-                        <a href="#" class="btn btn-primary">Check it out</a>
-                    </div>
+                    Do you know if your workout routine is suited for you?
+                    
+                    Well, you don’t have to worry anymore!
+                    </p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
                 </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+                <img width="100%" height="500px" src="images/indexPictureSecond.png">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1 style="text-shadow: 2px 2px black;">Why us?</h1>
+                  <p style="text-shadow: 2px 2px black;">We design your work-out based on your preferences.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+                <img width="100%" height="500px" src="images/indexPictureThird.png">
+              <div class="container">
+                <div class="carousel-caption text-end">
+                  <h1 style="text-shadow: 2px 2px black;">We value your opinion</h1>
+                  <p style="text-shadow: 2px 2px black;">If you have any suggestions, recommendations, questions, complaints or compliments, please feel free to Contact us.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#">Contact us</a></p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-sm">
-            <div class="card" style="width: 20rem; height:25rem;">
-              <img src="images/beachpush.jpg" class="card-img-top card_images " alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Beach workouts</h5>
-                <p class="card-text"></p>
-                <div>
-
-                <a href="#" class="btn btn-primary">Check it out</a></div>
-              </div>
-            <div class="col-sm">
-                <div class="card" style="width: 20rem; height:25rem;">
-                    <img src="images/beachpush.jpg" class="card-img-top card_images " alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Beach workouts</h5>
-                        <p class="card-text"></p>
-                        <div>
-
-                            <a href="#" class="btn btn-primary">Check it out</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="card" style="width: 20rem; height:25rem">
-              <img src="images/homework.webp" class="card-img-top card_images" alt="...">
-              <div class="card-body">
-                <h5 class="card-title">Mazoe</h5>
-                <p class="card-text">The great Mazoe Dam</p>
-                <a href="#" class="btn btn-primary">Check it out</a>
-              </div>
-            <div class="col-sm">
-                <div class="card" style="width: 20rem; height:25rem">
-                    <img src="images/homework.webp" class="card-img-top card_images" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Mazoe</h5>
-                        <p class="card-text">The great Mazoe Dam</p>
-                        <a href="#" class="btn btn-primary">Check it out</a>
-                    </div>
-                </div>
-            </div>
-          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
+      
 
-      </div>
-
-
-
-    </div>
-
-
-
-
+        <div class="container-fluid justify-content-center">  
+          <div class="container-fluid justify-content-center">
+            <div class="row">
+              <div class="col-lg-4 text-center" style="margin-top: 25px;">
+                <img src="images/exerciseIcons.jpg" style="border-radius: 50%; width: 140px; height: 140px; border: 1px solid black;">
+                <h2 style="justify-self: center;">We provide exercises</h2>
+                <p style="color: grey; font-style: italic;">based on your preference.s</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              </div>
+              <div class="col-lg-4 text-center" style="margin-top: 25px;">
+                <img src="images/motivatioIcon.jpg" style="border-radius: 50%; width: 140px; height: 140px; border: 1px solid black;">
+                <h2>We provide motivation</h2>
+                <p style="color: grey; font-style: italic;">based on your need.</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              </div>
+              <div class="col-lg-4 text-center" style="margin-top: 25px;">
+                <img src="images/locationIcon.png" style="border-radius: 50%; width: 140px; height: 140px; border: 1px solid black;">
+                <h2>We provide locations</h2>
+                <p style="color: grey; font-style: italic;">based on your opportunities.</p>
+                <p><a class="btn btn-secondary" href="#">View details »</a></p>
+              </div>
+            </div>
+          </div>
+        
+          <!-- START THE FEATURETTES 
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+              <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+            </div>
+            <div class="col-md-5">
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+              <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette">
+            <div class="col-md-7">
+              <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+              <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+            </div>
+            <div class="col-md-5">
+              <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      -->
+          <!-- /END THE FEATURETTES -->
+      
+        </div><!-- /.container -->
+      
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
