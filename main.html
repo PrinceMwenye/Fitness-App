@@ -62,7 +62,7 @@
     </header>
 
     <main style="margin-top: 100px;">
-        <h1 class="text-black text-center">Your work-out</h1>
+        <h1 class="text-black text-center"><span id="name-goes-here"></span>'s work-out</h1>
         <div class="album py-5">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -166,6 +166,31 @@
             var popup = document.getElementById("");
             popup.classList.toggle("show");
         }
+
+        function insertName() {
+        firebase.auth().onAuthStateChanged(user => {
+            // Check if user is signed in:
+            if (user) {                                                                 
+                // Do something for the current logged-in user here: 
+                console.log(user.uid);
+                //go to the correct user document by referencing to the user uid
+                currentUser = db.collection("users").doc(user.uid);
+                //get the document for current user.
+                currentUser.get()
+			          .then(userDoc => {
+                   var user_Name = userDoc.data().name;
+                   console.log(user_Name);
+                   //method #1:  insert with html only
+                   //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                   //method #2:  insert using jquery
+                   $("#name-goes-here").text(user_Name);                         //using jquery
+                })
+            } else {
+                // No user is signed in.
+            }
+        });
+    }
+    insertName();
     </script>
 
 </body>
