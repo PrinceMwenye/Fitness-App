@@ -235,21 +235,6 @@
             </ul>
         </footer>
         <script>
-            var sliderPerWeek = document.getElementById("perWeek");
-            var outputPerWeek = document.getElementById("valuePerWeek");
-            outputPerWeek.innerHTML = sliderPerWeek.value; // Display the default slider value
-
-            var sliderPerDay = document.getElementById("perDay");
-            var outputperDay = document.getElementById("valuePerDay");
-            outputperDay.innerHTML = sliderPerDay.value; // Display the default slider value
-
-            // Update the current slider value (each time you drag the slider handle)
-            sliderPerWeek.oninput = function () {
-                outputPerWeek.innerHTML = this.value;
-            }
-            sliderPerDay.oninput = function () {
-                outputperDay.innerHTML = this.value;
-            }
         </script>
     </div>
 
