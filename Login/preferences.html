@@ -32,7 +32,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
     <!-- Link to the api keys for your firebase project -->
-    <script src="scripts/firebaseAPI.js"></script>
+    <script src="../scripts/firebaseAPI.js"></script>
 
     <style>
         header {
@@ -99,7 +99,7 @@
 
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Workout</h4>
+                    <h4 class="mb-3">preferences</h4>
                     <form class="needs-validation" novalidate="">
                         <div class="row g-3">
 
@@ -131,8 +131,8 @@
                             </div> -->
 
                             <div class="col-md-5">
-                                <label for="country" class="form-label">Your workout level</label>
-                                <select class="form-select" id="country" required="">
+                                <label for="difficulty" class="form-label">Your Workout Difficulty</label>
+                                <select class="form-select" id="difficulty">
                                     <option value="">Choose...</option>
                                     <option>Beginner</option>
                                     <option>Intermediate</option>
@@ -144,14 +144,13 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="customRange2" class="form-label">Times per week you would like to work
-                                    out: <span id="valuePerWeek" style="color: blue;"></span></label>
-                                <input type="range" class="form-range" min="1" max="14" id="perWeek" value="3">
+                                <label for="customRange2" class="form-label">Workouts per week: <span id="valuePerWeek" style="color: blue;"></span></label>
+                                <input type="range" class="form-range" min="1" max="14" id="rangePerWeek" value="3">
                             </div> 
 
                             <div class="col-12">
                                 <label for="customRange2" class="form-label">Minutes per workout: <span id="valuePerDay" style="color: blue;"></span></label>
-                                <input type="range" class="form-range" min="10" max="90" id="perDay" value="30">
+                                <input type="range" class="form-range" min="10" max="90" id="rangePerWorkout" value="30">
                             </div>  
 
 
@@ -172,12 +171,12 @@
                         <hr class="my-4"> -->
                         
                         <div class="progress">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: 33%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">33%</div>
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
                         </div>
 
                         <br>
 
-                        <button class="w-100 btn btn-primary btn-lg" type="submit">Next</button>
+                        <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Next</button>
                         <div class="py-4 text-center">
                             <a href="#" class="link-secondary" style="text-align: center;">Skip for now</a>
                         </div>
@@ -235,11 +234,12 @@
             </ul>
         </footer>
         <script>
-            var sliderPerWeek = document.getElementById("perWeek");
+            // Slider functions
+            var sliderPerWeek = document.getElementById("rangePerWeek");
             var outputPerWeek = document.getElementById("valuePerWeek");
             outputPerWeek.innerHTML = sliderPerWeek.value; // Display the default slider value
 
-            var sliderPerDay = document.getElementById("perDay");
+            var sliderPerDay = document.getElementById("rangePerWorkout");
             var outputperDay = document.getElementById("valuePerDay");
             outputperDay.innerHTML = sliderPerDay.value; // Display the default slider value
 
@@ -249,6 +249,27 @@
             }
             sliderPerDay.oninput = function () {
                 outputperDay.innerHTML = this.value;
+            }
+            // Writes the user's information to the database
+            function saveUserInfo(){
+                firebase.auth().onAuthStateChanged(user => {
+                    console.log("Info successfully written!");
+                    currentUser = db.collection("users").doc(user.uid) // gets user collection
+                    var workoutDifficutly = document.getElementById('difficulty').value; 
+                    var workoutsPerWeek = document.getElementById('rangePerWeek').value;
+                    var minutesPerWorkout = document.getElementById('rangePerWorkout').value;
+                    console.log(workoutDifficutly);
+                    currentUser.update({
+                        "workout difficutly": workoutDifficutly,
+                        "workouts per week": workoutsPerWeek,
+                        "minutes per workout": minutesPerWorkout
+                        
+                    })
+                    .then(() => {
+                        console.log("Info successfully written!");
+                        window.location.assign("preferences=continuation.html");
+                    })
+                });
             }
         </script>
     </div>
