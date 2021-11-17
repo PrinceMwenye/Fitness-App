@@ -19,8 +19,7 @@
 
     <!-- Firebase 8 CDN's -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
     </script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -83,7 +82,7 @@
                         <div class="card shadow-sm">
                             <img src="images/abs.jpg">
                             <div class="card-body">
-                                <h3 class="text-black">Abs begginer</h3>
+                                <h3 class="text-black">Abs beginner</h3>
                                 <p class="card-text">20 minutes, 16 workouts</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -97,7 +96,7 @@
                         <div class="card shadow-sm">
                             <img src="images/push-ups.jpg">
                             <div class="card-body">
-                                <h3 class="card-text">Chest begginer</h3>
+                                <h3 class="card-text">Chest beginner</h3>
                                 <p class="card-text">7 minutes, 11 workouts</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -111,7 +110,7 @@
                         <div class="card shadow-sm">
                             <img src="images/arms-workout.jpg">
                             <div class="card-body">
-                                <h3 class="card-text">Arms begginer</h3>
+                                <h3 class="card-text">Arms beginner</h3>
                                 <p class="card-text">17 minutes, 19 workouts</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -181,30 +180,30 @@
         }
 
         function insertName() {
-        firebase.auth().onAuthStateChanged(user => {
-            // Check if user is signed in:
-            if (user) {                                                                 
-                // Do something for the current logged-in user here: 
-                console.log(user.uid);
-                //go to the correct user document by referencing to the user uid
-                currentUser = db.collection("users").doc(user.uid);
-                //get the document for current user.
-                currentUser.get()
-			          .then(userDoc => {
-                   var user_Name = userDoc.data().name;
-                   console.log(user_Name);
-                   //method #1:  insert with html only
-                   //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                   //method #2:  insert using jquery
-                   $("#name-goes-here").text(user_Name);                         //using jquery
-                })
-            } else {
-                // No user is signed in.
-                console.log("No user is signed in.");
-            }
-        });
-    }
-    insertName();
+            firebase.auth().onAuthStateChanged(user => {
+                // Check if user is signed in:
+                if (user) {
+                    // Do something for the current logged-in user here: 
+                    console.log(user.uid);
+                    //go to the correct user document by referencing to the user uid
+                    currentUser = db.collection("users").doc(user.uid);
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            var user_Name = userDoc.data().name;
+                            console.log(user_Name);
+                            //method #1:  insert with html only
+                            //document.getElementById("name-goes-here").innerText = n;    //using javascript
+                            //method #2:  insert using jquery
+                            $("#name-goes-here").text(user_Name); //using jquery
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("No user is signed in.");
+                }
+            });
+        }
+        insertName();
     </script>
 
 </body>
