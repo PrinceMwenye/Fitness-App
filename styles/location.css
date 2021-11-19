@@ -147,13 +147,14 @@ h1 {
 
 /* Trail workout styling */
 
-.trail-runs {
-    padding-top: 300px;
-}
-
-
-/* BEach workout styling */
-
-.beach-works {
+#trail-runs {
     padding-top: 100px;
 }
+
+
+/* Beach workout styling */
+
+
+/* .beach-works {
+    padding-top: 100px;
+} */
