@@ -83,76 +83,103 @@
     </header>
 
 
+    <h1>Thanks for your review 😀<span id="WorkoutName"></span></h1>
 
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Workout review</label>
+            <input type="text" class="form-control" id="title" placeholder="Title">
+        </div><br>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Recommend this workout?</label>
+            <select class="form-control" id="recommend">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Which target muscle are you focusing on?</label>
+                <select class="form-control" id="target">
+                    <option>Lower body</option>
+                    <option>Upper Body</option>
+                   
+                </select>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Any other comments?</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
 
-
-    <div class="container .beach-works">
-        <div class="row">
-            <div class="col-sm">
-                <iframe id="beachone" width="420" height="315" src="">
-                </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachone')">Write a review</a> </div>
-            <div class="col-sm">
-                <iframe id="beachworktwo" width="420" height="315" src="">
-                </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachworktwo')">Write a review</a></div>
-            <div class="col-sm">
-                <iframe id="beachthree" width="420" height="315" src="">
-                </iframe><a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachthree')">Write a review</a></div>
+            <br>
+            <div class="d-flex justify-content-end">
+                <a href="Review_success.html"><button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button></a>
+            </div>
         </div>
-    </div>
-
+    </form>
 
     <script>
-        function read_display_beach_workout_one() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    console.log("current document data: " + BeachWork.data().beachone); //.data() returns data object
-                    document.getElementById("beachone").src = BeachWork.data().beachone; //using javascript to display the data on the right place
+        let WorkoutID = localStorage.getItem("WorkoutID");
 
-                })
+        db.collection("Workouts").where("code", "==", WorkoutID)
+            .get()
+            .then(queryWorkout => {
+                //see how many results you have got from the query
+                num = queryWorkout.size;
+                // get the documents of query
+                Workouts = queryWorkout.docs;
+
+                // We want to have one document per hike, so if the the result of 
+                //the query is more than one, we can check it right now and clean the DB if needed.
+                if (num = 1) {
+                    var thisWorkout = Workouts[0].data();
+                    name = thisWorkout.name;
+                    document.getElementById("WorkoutName").innerHTML = name;
+                } else {}
+            })
+            .catch((error) => {
+                console.log("Error getting documents: ", error);
+            });
+
+
+
+
+
+        function writeReview() {
+
+
+            let Title = document.getElementById("title").value;
+            let Recommend = document.getElementById("recommend").value;
+            let Target = document.getElementById("target").value;
+
+
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid);
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            // Start a new collection and add all data in it.
+                            db.collection("Reviews").add({
+                                code: WorkoutID,
+                                UserID: userID,
+                                UserEmail: userEmail,
+                                Title: Title,
+                                Target: Target,
+                                Recommend: Recommend
+
+                            });
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
+                }
+            });
+
+
         }
-
-        function read_display_beach_workout_two() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    // console.log("current document data: " + BeachWork.data().trailtwo); //.data() returns data object
-                    document.getElementById("beachworktwo").src = BeachWork.data().beachworktwo; //using javascript to display the data on the right place
-
-                })
-        }
-
-        function read_display_beach_workout_three() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    // console.log("current document data: " + BeachWork.data().trailthree); //.data() returns data object
-                    document.getElementById("beachthree").src = BeachWork.data().beachthree; //using javascript to display the data on the right place
-
-                })
-        }
-
-
-
-        function setWorkoutData(id) {
-            localStorage.setItem('WorkoutID', id);
-        }
-
-
-
-        // function display_Workouts() {
-        //     db.collection("Workouts").get()
-        //         .then(allWorkouts => {
-        //             allWorkouts.forEach(doc => {
-        //                 var Workoutname = doc.data().name; //gets the name field
-        //                 var WorkoutID = doc.data().code; //gets the unique ID field
-        //                 document.getElementById("beachthree").innerText = Workoutname;
-        //             })
-
-        //         })
-        // }
-        // display_Workouts();
-
-
-
-        read_display_beach_workout_one();
-        read_display_beach_workout_two();
-        read_display_beach_workout_three();
     </script>

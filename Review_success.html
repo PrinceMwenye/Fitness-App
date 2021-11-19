@@ -39,6 +39,7 @@
     <script src="../scripts/firebaseAPI.js"></script>
 </head>
 
+
 <body>
     <header style="margin-bottom: 80px;">
         <nav class="navbar navbar-dark bg-dark fixed-top ">
@@ -83,76 +84,7 @@
     </header>
 
 
+    <h1 style="text-align: center;">Success</h1>
 
 
-
-    <div class="container .beach-works">
-        <div class="row">
-            <div class="col-sm">
-                <iframe id="beachone" width="420" height="315" src="">
-                </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachone')">Write a review</a> </div>
-            <div class="col-sm">
-                <iframe id="beachworktwo" width="420" height="315" src="">
-                </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachworktwo')">Write a review</a></div>
-            <div class="col-sm">
-                <iframe id="beachthree" width="420" height="315" src="">
-                </iframe><a href="reviews.html" class="link-primary" onclick="setWorkoutData('beachthree')">Write a review</a></div>
-        </div>
-    </div>
-
-
-    <script>
-        function read_display_beach_workout_one() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    console.log("current document data: " + BeachWork.data().beachone); //.data() returns data object
-                    document.getElementById("beachone").src = BeachWork.data().beachone; //using javascript to display the data on the right place
-
-                })
-        }
-
-        function read_display_beach_workout_two() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    // console.log("current document data: " + BeachWork.data().trailtwo); //.data() returns data object
-                    document.getElementById("beachworktwo").src = BeachWork.data().beachworktwo; //using javascript to display the data on the right place
-
-                })
-        }
-
-        function read_display_beach_workout_three() {
-            db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-                .onSnapshot(BeachWork => { //arrow notation
-                    // console.log("current document data: " + BeachWork.data().trailthree); //.data() returns data object
-                    document.getElementById("beachthree").src = BeachWork.data().beachthree; //using javascript to display the data on the right place
-
-                })
-        }
-
-
-
-        function setWorkoutData(id) {
-            localStorage.setItem('WorkoutID', id);
-        }
-
-
-
-        // function display_Workouts() {
-        //     db.collection("Workouts").get()
-        //         .then(allWorkouts => {
-        //             allWorkouts.forEach(doc => {
-        //                 var Workoutname = doc.data().name; //gets the name field
-        //                 var WorkoutID = doc.data().code; //gets the unique ID field
-        //                 document.getElementById("beachthree").innerText = Workoutname;
-        //             })
-
-        //         })
-        // }
-        // display_Workouts();
-
-
-
-        read_display_beach_workout_one();
-        read_display_beach_workout_two();
-        read_display_beach_workout_three();
-    </script>
+    <img src="images/success.jpeg" style="height: 350px;">
