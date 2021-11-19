@@ -74,31 +74,40 @@
         </nav>
     </header>
 
+    <!--------------------------------------------Template---------------------------------------------------->
+    <template id="CardTemplate">
+        <div class="card shadow-sm" style="padding: 0;">
+            <img class ="card-image" src="...">
+            <div class="card-body">
+                <h3 class="title-text-black">Title: 1</h3>
+                <p class="card-text">Lorem</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-outline-secondary" onclick="none">View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
     <main style="margin-top: 100px;">
         <h1 class="text-black text-center"><span id="name-goes-here"></span>'s work-out</h1>
         <div class="album py-5">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <div class="col">
-                        <div class="card shadow-sm">
-                            <img src="images/abs.jpg">
-                            <div class="card-body">
-                                <h3 class="text-black">Abs begginer</h3>
-                                <p class="card-text">20 minutes, 16 workouts</p>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    </div>
-                                </div>
+                        <div class="container">
+                            <div id="Chest-goes-here" class="row row-cols-auto">
+                
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card shadow-sm">
-                            <img src="images/push-ups.jpg">
+                            <img src="">
                             <div class="card-body">
-                                <h3 class="card-text">Chest begginer</h3>
-                                <p class="card-text">7 minutes, 11 workouts</p>
+                                <h3 class="card-text"></h3>
+                                <p class="card-text"></p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -111,7 +120,7 @@
                         <div class="card shadow-sm">
                             <img src="images/arms-workout.jpg">
                             <div class="card-body">
-                                <h3 class="card-text">Arms begginer</h3>
+                                <h3 class="title card-text">Arms begginer</h3>
                                 <p class="card-text">17 minutes, 19 workouts</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -175,12 +184,7 @@
     </div>
 
     <script>
-        function showPopUp() {
-            var popup = document.getElementById("");
-            popup.classList.toggle("show");
-        }
-
-        function insertName() {
+    function insertName() {
         firebase.auth().onAuthStateChanged(user => {
             // Check if user is signed in:
             if (user) {                                                                 
@@ -190,13 +194,10 @@
                 currentUser = db.collection("users").doc(user.uid);
                 //get the document for current user.
                 currentUser.get()
-			          .then(userDoc => {
-                   var user_Name = userDoc.data().name;
-                   console.log(user_Name);
-                   //method #1:  insert with html only
-                   //document.getElementById("name-goes-here").innerText = n;    //using javascript
-                   //method #2:  insert using jquery
-                   $("#name-goes-here").text(user_Name);                         //using jquery
+                        .then(userDoc => {
+                    var user_Name = userDoc.data().name;
+                    console.log(user_Name);
+                    $("#name-goes-here").text(user_Name);                       
                 })
             } else {
                 // No user is signed in.
@@ -205,6 +206,35 @@
         });
     }
     insertName();
+
+    function displayCards(collection){
+        let CardTemplate = document.getElementById("CardTemplate");
+
+        db.collection(collection).get().then(snap => {
+            var i = 1
+            snap.forEach(doc => {
+                var title = collection + " " + doc.data().Name; 
+                var details = doc.data().Length + ", " + doc.data().NumberOfExercises;
+                var image = "./images/" + doc.data().Image;
+                var link = doc.data().Link;
+                let newcard = CardTemplate.content.cloneNode(true);
+                console.log(title);
+                console.log(details);
+                console.log(image);
+                console.log(link);
+                console.log(newcard);
+
+                newcard.querySelector('.title-text-black').innerHTML = title;
+                newcard.querySelector('.card-text').innerHTML = details;
+                newcard.querySelector('.card-image').src = image;
+                
+                console.log(newcard);
+                document.getElementById(doc.data().Name + "-goes-here").appendChild(newcard);
+                i++;
+            })
+        })
+    }
+    displayCards("Beginners");
     </script>
 
 </body>

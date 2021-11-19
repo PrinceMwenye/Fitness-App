@@ -46,8 +46,8 @@
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Fitness4all</a>
-                <i class="material-icons" style="color: white; margin-right: 50px;"">fitness_center</i>
+                <a class="navbar-brand" href="../index.html">Fitness4all</a>
+                <i class="material-icons" style="color: white; margin-right: 50px;">fitness_center</i>
                 <button class=" navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -102,34 +102,6 @@
                     <h4 class="mb-3">preferences</h4>
                     <form class="needs-validation" novalidate="">
                         <div class="row g-3">
-
-
-                            <!--<div class="col-12">
-                                <label for="address" class="form-label">text</label>
-                                <input type="text" class="form-control" id="address" placeholder="" required="">
-                                <div class="invalid-feedback">
-                                    Text
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="address2" class="form-label">text <span
-                                        class="text-muted">(Optional)</span></label>
-                                <input type="text" class="form-control" id="address2" placeholder="">
-                            </div>-->
-
-                            <!-- <div class="col-md-5">
-                                <label for="country" class="form-label">Do you have any </label>
-                                <select class="form-select" id="country" required="">
-                                    <option value="">Choose...</option>
-                                    <option>Yes, I have some equipement</option>
-                                    <option>No, I have no equipement</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    Please select a level.
-                                </div>
-                            </div> -->
-
                             <div class="col-md-5">
                                 <label for="difficulty" class="form-label">Your Workout Difficulty</label>
                                 <select class="form-select" id="difficulty">
@@ -157,31 +129,20 @@
                         </div>
 
                         <hr class="my-4">
-
-                        <!-- <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="same-address">
-                            <label class="form-check-label" for="same-address">text</label>
-                        </div>
-
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">text</label>
-                        </div>
-
-                        <hr class="my-4"> -->
                         
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">50%</div>
                         </div>
 
                         <br>
+                    </form>
 
                         <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Next</button>
                         <div class="py-4 text-center">
                             <a href="#" class="link-secondary" style="text-align: center;">Skip for now</a>
                         </div>
                         
-                    </form>
+                    
                 </div>
             </div>
         </main>
@@ -250,15 +211,20 @@
             sliderPerDay.oninput = function () {
                 outputperDay.innerHTML = this.value;
             }
+
             // Writes the user's information to the database
             function saveUserInfo(){
+                console.log("inside the function");
                 firebase.auth().onAuthStateChanged(user => {
-                    console.log("Info successfully written!");
+                    
                     currentUser = db.collection("users").doc(user.uid) // gets user collection
+                    console.log(currentUser);
                     var workoutDifficutly = document.getElementById('difficulty').value; 
                     var workoutsPerWeek = document.getElementById('rangePerWeek').value;
                     var minutesPerWorkout = document.getElementById('rangePerWorkout').value;
+
                     console.log(workoutDifficutly);
+
                     currentUser.update({
                         "workout difficutly": workoutDifficutly,
                         "workouts per week": workoutsPerWeek,
@@ -266,11 +232,14 @@
                         
                     })
                     .then(() => {
-                        console.log("Info successfully written!");
                         window.location.assign("preferences=continuation.html");
                     })
                 });
             }
+
+            // function saveUserInfo(){
+            //     console.log("test")
+            // }
         </script>
     </div>
 

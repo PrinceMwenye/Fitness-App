@@ -46,8 +46,8 @@
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Fitness4all</a>
-                <i class="material-icons" style="color: white; margin-right: 50px;"">fitness_center</i>
+                <a class="navbar-brand" href="../index.html">Fitness4all</a>
+                <i class="material-icons" style="color: white; margin-right: 50px;">fitness_center</i>
                 <button class=" navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -120,13 +120,13 @@
                         <div class="col-md-5">
                             <label for="equipment" class="form-label">Equipment Availability</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasEquipment">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasEquipment" value="has equipment">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                 I have all equipment I need
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="noEquipment">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="noEquipment" value="no equipment">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                 I have no or little equipment 
                                 </label>
@@ -163,7 +163,7 @@
 
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="The Calves">
-                            <label class="form-check-label" for="The Calves">The Calves</label>
+                            <label class="form-check-label" for="The Calves">Calves</label>
                         </div>
 
                         <hr class="my-4">
@@ -173,13 +173,14 @@
                         </div>
 
                         <br>
-
-                        <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Next</button>
-                        <div class="py-4 text-center">
-                            <a href="#" class="link-secondary" style="text-align: center;">Skip for now</a>
-                        </div>
-                        
                     </form>
+
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Next</button>
+                    <div class="py-4 text-center">
+                        <a href="#" class="link-secondary" style="text-align: center;">Skip for now</a>
+                    </div>
+                        
+                    
                 </div>
             </div>
         </main>
@@ -239,8 +240,7 @@
         // Writes the user's information to the database
         function saveUserInfo() {
             firebase.auth().onAuthStateChanged(user => {
-                const currentUser = db.collection("users").doc(user.uid);// gets user collection
-                console.log(user.uid);
+                currentUser = db.collection("users").doc(user.uid);// gets user collection
                 var location = document.getElementById('location').value;
                 var equipment = null;
                 if (document.getElementById('noEquipment').value == null){
@@ -248,22 +248,19 @@
                 }else{
                     equipment = document.getElementById('noEquipment').value;
                 }
-                let checkboxes = ["Chest", "Back", "Arms", "Shoulders", "Legs", "The Calves"];
-                let muscleAreas = [];
-                for (const checkbox of checkboxes){
-                    if (document.getElementById(checkbox).value != null){
-                        muscleAreas.push(checkbox);
-                    }
-                }
+                var muscleAreas = document.querySelector('form-check-input').checked;
+                console.log(muscleAreas)
+                console.log(location)
+                console.log(equipment)
                 
                 currentUser.update({
-                    "workout difficutly": workoutDifficutly,
+                    "preferred location": location,
                     "equipment": equipment,
                     "muscle areas": muscleAreas
                 })
                 .then(() => {
-                    console.log("Info successfully written!");
-                    window.location.assign("../main.html");
+                    console.log("done")
+                    //window.location.assign("../main.html");
                 })
             });
         }
