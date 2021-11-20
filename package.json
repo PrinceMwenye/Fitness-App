@@ -1,0 +1,23 @@
+{
+  "name": "1800_dtc02",
+  "version": "1.0.0",
+  "description": "* [General info](#general-info)\r * [Technologies](#technologies)\r * [Contents](#content)",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RozanovN/1800_DTC02.git"
+  },
+  "author": "Prince",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RozanovN/1800_DTC02/issues"
+  },
+  "homepage": "https://github.com/RozanovN/1800_DTC02#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}

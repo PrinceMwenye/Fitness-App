@@ -112,13 +112,8 @@
                         <div class="card shadow-sm">
                             <img src="">
                             <div class="card-body">
-<<<<<<< HEAD
-                                <h3 class="card-text"></h3>
-                                <p class="card-text"></p>
-=======
                                 <h3 class="card-text">Chest beginner</h3>
                                 <p class="card-text">7 minutes, 11 workouts</p>
->>>>>>> 581ccc456124941d489e632c21edfbf8ff5dfda2
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -131,11 +126,7 @@
                         <div class="card shadow-sm">
                             <img src="images/arms-workout.jpg">
                             <div class="card-body">
-<<<<<<< HEAD
-                                <h3 class="title card-text">Arms begginer</h3>
-=======
                                 <h3 class="card-text">Arms beginner</h3>
->>>>>>> 581ccc456124941d489e632c21edfbf8ff5dfda2
                                 <p class="card-text">17 minutes, 19 workouts</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
@@ -199,59 +190,6 @@
     </div>
 
     <script>
-<<<<<<< HEAD
-    function insertName() {
-        firebase.auth().onAuthStateChanged(user => {
-            // Check if user is signed in:
-            if (user) {                                                                 
-                // Do something for the current logged-in user here: 
-                console.log(user.uid);
-                //go to the correct user document by referencing to the user uid
-                currentUser = db.collection("users").doc(user.uid);
-                //get the document for current user.
-                currentUser.get()
-                        .then(userDoc => {
-                    var user_Name = userDoc.data().name;
-                    console.log(user_Name);
-                    $("#name-goes-here").text(user_Name);                       
-                })
-            } else {
-                // No user is signed in.
-                console.log("No user is signed in.");
-            }
-        });
-    }
-    insertName();
-
-    function displayCards(collection){
-        let CardTemplate = document.getElementById("CardTemplate");
-
-        db.collection(collection).get().then(snap => {
-            var i = 1
-            snap.forEach(doc => {
-                var title = collection + " " + doc.data().Name; 
-                var details = doc.data().Length + ", " + doc.data().NumberOfExercises;
-                var image = "./images/" + doc.data().Image;
-                var link = doc.data().Link;
-                let newcard = CardTemplate.content.cloneNode(true);
-                console.log(title);
-                console.log(details);
-                console.log(image);
-                console.log(link);
-                console.log(newcard);
-
-                newcard.querySelector('.title-text-black').innerHTML = title;
-                newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-image').src = image;
-                
-                console.log(newcard);
-                document.getElementById(doc.data().Name + "-goes-here").appendChild(newcard);
-                i++;
-            })
-        })
-    }
-    displayCards("Beginners");
-=======
         function showPopUp() {
             var popup = document.getElementById("");
             popup.classList.toggle("show");
@@ -282,7 +220,6 @@
             });
         }
         insertName();
->>>>>>> 581ccc456124941d489e632c21edfbf8ff5dfda2
     </script>
 
 </body>
