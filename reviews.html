@@ -149,6 +149,7 @@
             let Title = document.getElementById("title").value;
             let Recommend = document.getElementById("recommend").value;
             let Target = document.getElementById("target").value;
+            let Description = document.getElementById("description").value;
 
 
 
@@ -169,7 +170,8 @@
                                 UserEmail: userEmail,
                                 Title: Title,
                                 Target: Target,
-                                Recommend: Recommend
+                                Recommend: Recommend,
+                                Description: Description
 
                             }).then(() => {
                                 window.location.assign("Review_success.html");
