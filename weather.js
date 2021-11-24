@@ -7,7 +7,7 @@ const { urlencoded } = require('body-parser');
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
-
+app.use(express.static(__dirname + '/public'));
 app.get("/", function(req, res) {
 
     res.sendFile(__dirname + "/weather.html");
@@ -28,7 +28,6 @@ app.post("/", function(req, res) {
 
             console.log(data);
             const weatherData = JSON.parse(data)
-            const query = req.body.cityName;
             const temp = weatherData.main.temp
             const weatherDescription = weatherData.weather[0].description
             const icon = weatherData.weather[0].icon
