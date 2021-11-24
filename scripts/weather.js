@@ -22,7 +22,7 @@ button.addEventListener('click', function() {
 
         })
 
-    // .catch(err => alert("Oops, couldnt find that one!"))
+    .catch(err => alert("Oops, couldnt find that one!"))
 
 
 })
