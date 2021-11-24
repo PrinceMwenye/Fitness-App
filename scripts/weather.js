@@ -3,12 +3,13 @@ var inputValue = document.querySelector('.inputValue');
 var name = document.querySelector('.name');
 var desc = document.querySelector('.desc');
 var temp = document.querySelector('.temp');
+let units = "metric"
 
 
 button.addEventListener('click', function() {
 
 
-    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=f81e869ce68e56cb2fe9ed64be0a74b1")
+    fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=f81e869ce68e56cb2fe9ed64be0a74b1&units=" + units)
 
     .then(response => response.json())
         .then(data => {
@@ -22,7 +23,7 @@ button.addEventListener('click', function() {
 
         })
 
-    .catch(err => alert("Oops, couldnt find that one!"))
+    .catch(err => alert("Couldn't find that one, check your spelling or use a main city name"))
 
 
 })
