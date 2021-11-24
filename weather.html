@@ -49,7 +49,6 @@
 
         <!-- Link to the api keys for your firebase project -->
         <script src="../scripts/firebaseAPI.js"></script>
-        <script src="../scripts/weather.js"></script>
     </head>
 
     <body>
@@ -100,11 +99,26 @@
 
         <h1 style="text-align: center;">Check weather</h1>
 
-        <form class="" action="/" method="post">
-            <label for="cityInput">City Name:</label></label>
-            <input id="cityInput" type="text" name="cityName">
-            <button type="submit">Check</button>
-        </form>
+
+
+        <div class="input">
+            <input type="text" class="inputValue" placeholder="Enter location">
+            <input type="submit" value="Submit" class="button">
+        </div>
+
+        <div class="display">
+
+            <h1 class="name"></h1>
+            <p class="desc"></p>
+            <p class="temp"></p>
+        </div>
+
+
+
+
+
+        <script src="../scripts/weather.js"></script>
+
 
     </body>
 
