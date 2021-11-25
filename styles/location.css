@@ -158,3 +158,11 @@ h1 {
 /* .beach-works {
     padding-top: 100px;
 } */
+
+
+/* Check weather styling */
+
+.display,
+.input {
+    text-align: center;
+}
