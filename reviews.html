@@ -110,47 +110,46 @@
                 <label for="exampleFormControlTextarea1">Any other comments?</label>
                 <textarea class="form-control" id="description" rows="3"></textarea>
             </div>
-
-            <br>
-            <div class="d-flex justify-content-end">
-                <a href="Review_success.html"><button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button></a>
-            </div>
         </div>
     </form>
+    <br>
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
+    </div>
+
+
 
     <script>
         let WorkoutID = localStorage.getItem("WorkoutID");
 
-        db.collection("Workouts").where("code", "==", WorkoutID)
-            .get()
-            .then(queryWorkout => {
-                //see how many results you have got from the query
-                num = queryWorkout.size;
-                // get the documents of query
-                Workouts = queryWorkout.docs;
+        // db.collection("Workouts").where("code", "==", WorkoutID)
+        //     .get()
+        //     .then(queryWorkout => {
+        //         //see how many results you have got from the query
+        //         num = queryWorkout.num;
+        //         // get the documents of query
+        //         Workouts = queryWorkout.docs;
+        //         console.log(Workouts)
 
-                // We want to have one document per hike, so if the the result of 
-                //the query is more than one, we can check it right now and clean the DB if needed.
-                if (num = 1) {
-                    var thisWorkout = Workouts[0].data();
-                    name = thisWorkout.name;
-                    document.getElementById("WorkoutName").innerHTML = name;
-                } else {}
-            })
-            .catch((error) => {
-                console.log("Error getting documents: ", error);
-            });
-
-
-
+        //         if (num = 1) {
+        //             var thisWorkout = Workouts[0].data();
+        //             name = thisWorkout.name;
+        //             document.getElementById("WorkoutName").innerHTML = name;
+        //         } else {}
+        //     })
+        //     .catch((error) => {
+        //         console.log("Error getting documents: ", error);
+        //     });
 
 
         function writeReview() {
 
+            console.log("inside");
 
             let Title = document.getElementById("title").value;
             let Recommend = document.getElementById("recommend").value;
             let Target = document.getElementById("target").value;
+            let Description = document.getElementById("description").value;
 
 
 
@@ -161,6 +160,7 @@
                     //get the document for current user.
                     currentUser.get()
                         .then(userDoc => {
+
                             //get user Email
                             var userEmail = userDoc.data().email;
                             // Start a new collection and add all data in it.
@@ -170,16 +170,18 @@
                                 UserEmail: userEmail,
                                 Title: Title,
                                 Target: Target,
-                                Recommend: Recommend
+                                Recommend: Recommend,
+                                Description: Description
 
-                            });
+                            }).then(() => {
+                                window.location.assign("Review_success.html");
+                            })
                         })
                 } else {
                     // No user is signed in.
                     console.log("no user signed in");
                 }
             });
-
 
         }
     </script>

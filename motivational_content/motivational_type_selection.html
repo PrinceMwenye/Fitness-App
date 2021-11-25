@@ -29,38 +29,27 @@
             align-content: center;
         }
         
-
-        .grid-item{
+        .grid-item {
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: gainsboro;
             border: 2px solid black;
             border-radius: 10%;
-            margin: 10% 0 ;
+            margin: 10% 0;
             height: 100px;
             font-size: x-large;
-            font-family:Arial, Helvetica, sans-serif;
-            
+            font-family: Arial, Helvetica, sans-serif;
         }
-
-        
-        
-      
         
         .grid-item1 {
             margin-top: 17%;
         }
-
-        h2{
+        
+        h2 {
             margin-top: 15%;
             text-align: center;
         }
-
-        
-      
-
-      
     </style>
 </head>
 
@@ -112,9 +101,10 @@
     <h2>Select One of Motivation Types:</h2>
 
     <div class="grid-container">
-       <div class="grid-item grid-item1" onclick="goTo('video_page.html')">Video</div>
-       <div class="grid-item grid-item2" onclick="goTo('audio_page.html')">Audio</div>
-       <div class="grid-item grid-item3" onclick="goTo('article_page.html')">Article</div>
+        <div class="grid-item grid-item1" onclick="goTo('video_page.html')">Video</div>
+        <div class="grid-item grid-item2" onclick="goTo('audio_page.html')">Audio</div>
+        <div class="grid-item grid-item3" onclick="goTo('article_page.html')">Article</div>
+        <div class="grid-item grid-item3" onclick="goTo('success_story.html')">Today's Success Story</div>
     </div>
 
 
@@ -168,11 +158,11 @@
 
 
         <script>
-            function goTo(pageURL){
+            function goTo(pageURL) {
                 window.location.href = pageURL
             }
 
-            function changeBackgroundColor(element, color){
+            function changeBackgroundColor(element, color) {
                 element.style.background = color;
             }
         </script>
