@@ -3,6 +3,8 @@ var inputValue = document.querySelector('.inputValue');
 var name = document.querySelector('.name');
 var desc = document.querySelector('.desc');
 var temp = document.querySelector('.temp');
+var extra = document.querySelector(".extra-information")
+var weatherpicture = document.querySelector(".weatherpicture")
 let units = "metric"
 
 
@@ -18,12 +20,35 @@ button.addEventListener('click', function() {
             var descValue = data['weather'][0]['description'];
 
             name.innerHTML = nameValue;
-            temp.innerHTML = tempValue;
             desc.innerHTML = descValue;
+
+            temp.innerHTML = "<b>Current Temp: <b/>" + tempValue + " <i>Degrees Celcius<i/>";
+
+            if (tempValue < 10) {
+                extra.innerHTML = "Seems too cold 🥶 in " + nameValue + " Stay warm"
+                extra.style.color = "blue"
+                weatherpicture.innerHTML = "<img src = 'images/coldweather.jpg'/>"
+
+
+            } else if (tempValue > 10 && tempValue < 30) {
+                extra.innerHTML = "Could be warm enough in " + nameValue + ", just drink enough water!"
+                extra.style.color = "orange"
+
+                weatherpicture.innerHTML = "<img src = 'images/hotweather.jpg'/>"
+
+
+            } else {
+                extra.innerHTML = "Too hot for the outdoors!"
+                weatherpicture.innerHTML = "<img src = 'images/hotweatherwarning.jpeg'/>"
+
+
+            }
 
         })
 
-    .catch(err => alert("Couldn't find that one, check your spelling or use a main city name"))
+
+
+    // .catch(err => alert("Couldn't find that one, check your spelling or use a main city name"))
 
 
 })
