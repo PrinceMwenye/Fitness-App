@@ -48,7 +48,7 @@ button.addEventListener('click', function() {
 
 
 
-    // .catch(err => alert("Couldn't find that one, check your spelling or use a main city name"))
+    .catch(err => alert("Couldn't find that one, check your spelling or use a main city name"))
 
 
 })
