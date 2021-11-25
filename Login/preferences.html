@@ -214,7 +214,6 @@
 
             // Writes the user's information to the database
             function saveUserInfo(){
-                console.log("inside the function");
                 firebase.auth().onAuthStateChanged(user => {
                     
                     currentUser = db.collection("users").doc(user.uid) // gets user collection
@@ -226,9 +225,9 @@
                     console.log(workoutDifficutly);
 
                     currentUser.update({
-                        "workout difficutly": workoutDifficutly,
-                        "workouts per week": workoutsPerWeek,
-                        "minutes per workout": minutesPerWorkout
+                        "workoutDifficutly": workoutDifficutly,
+                        "workoutsPerWeek": workoutsPerWeek,
+                        "minutesPerWorkout": minutesPerWorkout
                         
                     })
                     .then(() => {

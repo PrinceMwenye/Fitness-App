@@ -119,51 +119,53 @@
 
                         <div class="col-md-5">
                             <label for="equipment" class="form-label">Equipment Availability</label>
-                            <div class="form-check">
+                            <div class="another-form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasEquipment" value="has equipment">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                 I have all equipment I need
                                 </label>
                             </div>
-                            <div class="form-check">
+                            <div class="another-form-check">
                                 <input class="form-check-input" type="radio" name="flexRadioDefault" id="noEquipment" value="no equipment">
                                 <label class="form-check-label" for="flexRadioDefault2">
                                 I have no or little equipment 
                                 </label>
                             </div>
                         </div>
-                        
-                        <br>
+                    </form>
 
+                        <br>
+                    
+                    <form>
                         <label for="equipment" class="form-label">Muscle Focus Areas</label>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Chest">
+                            <input type="checkbox" class="form-check-input" value="Chest" name="muscleAreas">
                             <label class="form-check-label" for="Chest">Chest</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Back">
+                            <input type="checkbox" class="form-check-input" value="Back" name="muscleAreas">
                             <label class="form-check-label" for="Back">Back</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Arms">
+                            <input type="checkbox" class="form-check-input" value="Arms" name="muscleAreas">
                             <label class="form-check-label" for="Arms">Arms</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Shoulders">
+                            <input type="checkbox" class="form-check-input" value="Shoulders" name="muscleAreas">
                             <label class="form-check-label" for="Shoulders">Shoulders</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="Legs">
+                            <input type="checkbox" class="form-check-input" value="Legs" name="muscleAreas">
                             <label class="form-check-label" for="Legs">Legs</label>
                         </div>
 
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="The Calves">
-                            <label class="form-check-label" for="The Calves">Calves</label>
+                            <input type="checkbox" class="form-check-input" value="Calves" name="muscleAreas">
+                            <label class="form-check-label" for="Calves">Calves</label>
                         </div>
 
                         <hr class="my-4">
@@ -243,20 +245,29 @@
                 currentUser = db.collection("users").doc(user.uid);// gets user collection
                 var location = document.getElementById('location').value;
                 var equipment = null;
-                if (document.getElementById('noEquipment').value == null){
-                    equipment = document.getElementById('hasEquipment').value;
-                }else{
+                if (document.getElementById('noEquipment').checked){
                     equipment = document.getElementById('noEquipment').value;
+                }else{
+                    equipment = document.getElementById('hasEquipment').value;
                 }
-                var muscleAreas = document.querySelector('form-check-input').checked;
-                console.log(muscleAreas)
+                console.log(document.forms.length);
+                var focusMuscleAreas = [];
+                var muscleAreas = document.forms[2];
+                console.log(muscleAreas);
+                var i;
+                for (i = 0; i < muscleAreas.length; i++){
+                    if (muscleAreas[i].checked) {
+                        focusMuscleAreas.push(muscleAreas[i].value)
+                    }
+                }
+                console.log(focusMuscleAreas)
                 console.log(location)
                 console.log(equipment)
                 
                 currentUser.update({
-                    "preferred location": location,
+                    "preferredLocation": location,
                     "equipment": equipment,
-                    "muscle areas": muscleAreas
+                    "muscleAreas": focusMuscleAreas
                 })
                 .then(() => {
                     console.log("done")
