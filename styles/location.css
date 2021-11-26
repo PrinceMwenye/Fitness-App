@@ -172,3 +172,7 @@ h1 {
 .check-footer {
     padding-top: 400px;
 }
+
+#caro-one img {
+    height: auto;
+}
