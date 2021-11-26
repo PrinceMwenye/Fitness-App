@@ -37,44 +37,71 @@
 
     <!-- Link to the api keys for your firebase project -->
     <script src="../scripts/firebaseAPI.js"></script>
+
+    <!-- Custom Scripts and CSS -->
+    <script src="scripts/generalScript.js"></script>
+    <link href="styles/generalStyle.css" rel="stylesheet">
 </head>
 
 <body>
-    <header style="margin-bottom: 80px;">
-        <nav class="navbar navbar-dark bg-dark fixed-top ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Fitness4all</a>
-                <i class="material-icons" style="color: white;">fitness_center</i>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-                <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <header >
+
+        <nav class="navbar navbar-dark bg-dark fixed-top">
+
+            <div class="container-fluid justify-content-between">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
+                    0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()"/>
+                </svg>
+
+                <a href="index.html"><i class="material-icons">fitness_center</i></a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
+                            0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()"/>
+                        </svg>
+
+                        <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
+                        
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
                     </div>
+
                     <div class="offcanvas-body">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <ul class="navbar-nav flex-grow-1 pe-3">
+
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My account</a>
+                                <a class="nav-link" href="./main.html">My work-out</a>
                             </li>
-                            -aria-current="page", class="nav-link active"-
-                            <li class="nav-item">
-                                <a class="nav-link" href="main.html">My work-out</a>
+
+                            <li class="nav-item border-top">
+                                <a class="nav-link" 
+                                    href="motivational_content/motivational_type_selection.html">My
+                                    motivation</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="motivational_content/motivational_type_selection.html">My motivation</a>
+
+                            <li class="nav-item border-top">
+                                <a class="nav-link" href="./account/settings.html">My settings</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">My settings</a>
+
+                            <li class="nav-item border-top">
+                                <a aria-current="page" class="nav-link active" href="location.html">Explore locations</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="location.html">Explore locations</a>
-                            </li>
+                            
+                            <li class="nav-item border-top">
+                                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
+                            </li> 
+                            
                         </ul>
                     </div>
                 </div>
