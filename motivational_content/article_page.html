@@ -26,50 +26,36 @@
             grid-template-columns: 100%;
             justify-content: center;
             align-content: center;
-            
-            
         }
-
-        .grid-item{
-           border: 2px solid black;
-           margin: 10% 5%;
-           background-color: rgb(197, 194, 194);
-            
-        }
-
-      
         
-      
+        .grid-item {
+            border: 2px solid black;
+            margin: 10% 5%;
+            background-color: rgb(197, 194, 194);
+        }
         
         .grid-item1 {
             margin-top: 30%;
         }
-
-      /* .article_button{
+        /* .article_button{
           
           width: 100%;
           background-color: rgb(187, 187, 187);
       } */
-
-      .grid-item button{
-         
-          background-color: rgb(0, 0, 0);
-          color:white;
-          margin: 0% 30%;
-          margin-bottom: 5%;
-          border: 3px solid gray;
-          width: 30%;
-          
-
-      }
-
-      .grid-item button:hover{
-          background-color: white;
-          color: black;
-      }
-          
-
-
+        
+        .grid-item button {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            margin: 0% 30%;
+            margin-bottom: 5%;
+            border: 3px solid gray;
+            width: 30%;
+        }
+        
+        .grid-item button:hover {
+            background-color: white;
+            color: black;
+        }
     </style>
 </head>
 
@@ -77,7 +63,7 @@
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
             <div class="container-fluid justify-content-between">
-                <a class="navbar-brand" href="main.html">Fitness4all</a>
+                <a class="navbar-brand" href="../main.html">Fitness4all</a>
                 <i class="material-icons" style="color: white; margin-right: 50px;">fitness_center</i>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -94,20 +80,20 @@
                         </form>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My account</a>
+                                <a class="nav-link" href="../main.html">My account</a>
                             </li>
-                            <!---aria-current="page", class="nav-link active"--->
+
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My work-out</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="motivational_content/motivational_type_selection.html">My motivation</a>
+                                <a class="nav-link" href="../exercise.html">My work-out</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">My settings</a>
+                                <a class="nav-link" href="motivational_type_selection.html">My motivation</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="location.html">Explore locations</a>
+                                <a class="nav-link" href="../Login/preferences.html">My settings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../location.html">Explore locations</a>
                             </li>
                         </ul>
                     </div>
@@ -120,18 +106,22 @@
 
 
 
+
+
+
+
     <div class="grid-container">
 
-        <div  class ="grid-item grid-item1">
+        <div class="grid-item grid-item1">
             <h1>“I’m finally at peace with the way I look.”</h1>
             <button onclick="goTo('article_frames/article_frame1.html')">Read</button>
 
         </div>
-        
 
-         <!-- <div  class ="grid-item grid-item1"onmouseover="changeBackgroundColor(this, 'gray')" onmouseout="changeBackgroundColor(this, 'white')" onclick="goTo('article_frames/article_frame1.html')">3</div> -->
-        
-        
+
+        <!-- <div  class ="grid-item grid-item1"onmouseover="changeBackgroundColor(this, 'gray')" onmouseout="changeBackgroundColor(this, 'white')" onclick="goTo('article_frames/article_frame1.html')">3</div> -->
+
+
         <div class="grid-item grid-item2">
             <h1>“When I was a kid"</h1>
             <button onclick="goTo('article_frames/article_frame2.html')">Read</button>
@@ -206,11 +196,11 @@
         </footer>
 
         <script>
-            function goTo(pageURL){
+            function goTo(pageURL) {
                 window.location.href = pageURL
             }
 
-            function changeBackgroundColor(element, color){
+            function changeBackgroundColor(element, color) {
                 element.style.background = color;
             }
         </script>
