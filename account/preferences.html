@@ -91,7 +91,6 @@
     <div class="container">
         <main>
             <div class="py-5 text-center">
-                <!--<img class="d-block mx-auto mb-4" src="#" alt="" width="72" height="57">-->
                 <h2>Preference Setup</h2>
                 <p class="lead">To receive workout programs based on your preferences, please, fill in this
                     questionnaire.</p>
@@ -99,7 +98,7 @@
 
             <div class="row g-5">
                 <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">preferences</h4>
+                    <h4 class="mb-3">Preferences</h4>
                     <form class="needs-validation" novalidate="">
                         <div class="row g-3">
                             <div class="col-md-5">
@@ -204,7 +203,7 @@
             var outputperDay = document.getElementById("valuePerDay");
             outputperDay.innerHTML = sliderPerDay.value; // Display the default slider value
 
-            // Update the current slider value (each time you drag the slider handle)
+            // Update the current slider value (each time slider handle is drugged)
             sliderPerWeek.oninput = function () {
                 outputPerWeek.innerHTML = this.value;
             }
@@ -235,10 +234,6 @@
                     })
                 });
             }
-
-            // function saveUserInfo(){
-            //     console.log("test")
-            // }
         </script>
     </div>
 
