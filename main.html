@@ -44,7 +44,7 @@
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
                     0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()"/>
                 </svg>
-                <i class="material-icons" style="color: white; margin-left: 25px;">fitness_center</i>
+                <a href="index.html"><i class="material-icons" style="color: white; margin-left: 25px;">fitness_center</i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -63,15 +63,15 @@
                     <div class="offcanvas-body" style="display: flex-center;">
                         <ul class="navbar-nav flex-grow-1 pe-3" style="font-size: 1.3em; text-align: center; padding: 0 !important;">
                             <li class="nav-item">
-                                <a aria-current="page" class="nav-link active" href="../main.html">My work-out</a>
+                                <a aria-current="page" class="nav-link active" href="./main.html">My work-out</a>
                             </li>
                             <li class="nav-item border-top">
                                 <a class="nav-link" 
-                                    href="workout_web_app/motivational_content_section/moto/motivational_type_selection.html">My
+                                    href="motivational_content/motivational_type_selection.html">My
                                     motivation</a>
                             </li>
                             <li class="nav-item border-top">
-                                <a class="nav-link" href="/account/settings.html">My settings</a>
+                                <a class="nav-link" href="./account/settings.html">My settings</a>
                             </li>
                             <li class="nav-item border-top">
                                 <a class="nav-link" href="location.html">Explore locations</a>
@@ -286,7 +286,7 @@
                                     newcard.querySelector('.title-text-black').innerHTML = title;
                                     newcard.querySelector('.card-text').innerHTML = details;
                                     newcard.querySelector('.card-image').src = image;
-                                    newcard.querySelector('.workout-link').href = "./exercise.html?collection=" + difficulty + "&id=" + muscleAreas[i] 
+                                    newcard.querySelector('.workout-link').href = "./exercise.html?collection=" + difficulty + "&id=" + doc.data().Name
                                     
                                     console.log(newcard);   
                                     document.getElementById(doc.data().Name + "-goes-here").appendChild(newcard);
