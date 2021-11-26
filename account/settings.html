@@ -33,56 +33,81 @@
   <script src="../scripts/firebaseAPI.js"></script>
 
 
-  <link href="/styles/generalStyle.css" rel="stylesheet">
+  <!-- Custom Scripts and CSS -->
+  <script src="../scripts/generalScript.js"></script>
+  <link href="../styles/generalStyle.css" rel="stylesheet">
 </head>
 
 <body>
-  <header style="margin-bottom: 50px;">
+  <header>
     <nav class="navbar navbar-dark bg-dark fixed-top">
+
       <div class="container-fluid justify-content-between">
+
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
           class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
-                    0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
+              0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
         </svg>
-        <i class="material-icons" style="color: white; margin-left: 25px;">fitness_center</i>
+
+        <a href="../index.html"><i class="material-icons">fitness_center</i></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
           aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel" style="height: 100%">
+          aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel" style="margin-left: 123px;">Fitness4all
-            </h5>
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+              class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
+                  0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
+            </svg>
+
+            <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
+
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
           </div>
-          <div class="offcanvas-body" style="display: flex-center;">
-            <ul class="navbar-nav flex-grow-1 pe-3"
-              style="font-size: 1.3em; text-align: center; padding: 0 !important;">
+
+          <div class="offcanvas-body">
+
+            <ul class="navbar-nav flex-grow-1 pe-3">
+
               <li class="nav-item">
                 <a class="nav-link" href="../main.html">My work-out</a>
-            </li>
+              </li>
+
               <li class="nav-item border-top">
-                <a class="nav-link"
-                  href="workout_web_app/motivational_content_section/moto/motivational_type_selection.html">My
+                <a class="nav-link" href="../motivational_content/motivational_type_selection.html">My
                   motivation</a>
               </li>
+
               <li class="nav-item border-top">
-                <a aria-current="page" class="nav-link active" href="settings.htm">My settings</a>
+                <a aria-current="page" class="nav-link active" href="../account/settings.html">My settings</a>
               </li>
+
               <li class="nav-item border-top">
-                <a class="nav-link" href="location.html">Explore locations</a>
+                <a class="nav-link" href="../location.html">Explore locations</a>
               </li>
+
               <li class="nav-item border-top">
-                <button type="button" class="btn btn-light" style="font-size: 1em; margin-top: 115%;"
-                  onclick="logOut()">Sign out</button>
+                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
               </li>
+
             </ul>
+
           </div>
+
         </div>
+
       </div>
+
     </nav>
+
   </header>
 
   <div class="container">

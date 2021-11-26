@@ -33,8 +33,9 @@
     <script src="scripts/firebaseAPI.js"></script>
 
     <!-- Custom Scripts and CSS -->
-    <script src="scripts/generalScript.js"></script>
-    <link href="styles/generalStyle.css" rel="stylesheet">
+    <script src="./scripts/generalScript.js"></script>
+    <link href="./styles/generalStyle.css" rel="stylesheet">
+    <link href="./styles/exercise.css" rel="stylesheet">
 </head>
 
 <body>
@@ -95,12 +96,12 @@
 
     <h1 class=""></h1>
 
-    <main style="margin-top: 75px;" id="template">
+    <main id="template">
         <template id="CardTemplate">
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="" class="img-fluid float-start" alt="..." style="width: 150px; height: 100px;">
+                        <img src="..." class="img-fluid float-start">
                         <div class="card-body">
                             <h5 class="card-title">Name</h5>
                             <p class="card-text">Length</p>
@@ -110,7 +111,7 @@
             </div>
         </template>
 
-        <h1 class="text-black text-center" style="margin-bottom: 25px;"><span id="name-goes-here"></span>exercises</h1>
+        <h1 class="text-black text-center"><span id="name-goes-here"></span>exercises</h1>
 
         <div class="container-fluid">
             <div id="exercise0"></div>
