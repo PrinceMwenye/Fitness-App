@@ -152,9 +152,12 @@ h1 {
 }
 
 
-/* Beach workout styling */
+/* Check weather styling */
+
+.display,
+.input {
+    text-align: center;
+}
 
 
-/* .beach-works {
-    padding-top: 100px;
-} */
+/* Indoor workout styling */

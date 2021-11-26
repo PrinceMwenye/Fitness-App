@@ -20,12 +20,12 @@ button.addEventListener('click', function() {
             var descValue = data['weather'][0]['description'];
 
             name.innerHTML = nameValue;
-            desc.innerHTML = descValue;
+            desc.innerHTML = "<b>" + descValue; + "</b>"
 
-            temp.innerHTML = "<b>Current Temp: <b/>" + tempValue + " <i>Degrees Celcius<i/>";
+            temp.innerHTML = "<b>Current Temp: <b/>" + tempValue + " °C";
 
             if (tempValue < 10) {
-                extra.innerHTML = "Seems too cold 🥶 in " + nameValue + " Stay warm"
+                extra.innerHTML = "Seems too cold 🥶 in " + nameValue + ". Stay warm"
                 extra.style.color = "blue"
                 weatherpicture.innerHTML = "<img src = 'images/coldweather.jpg'/>"
 
