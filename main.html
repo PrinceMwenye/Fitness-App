@@ -255,7 +255,7 @@
                                     console.log("inside for each");
                                     var title = difficulty + " " + doc.data().Name;
                                     var details = doc.data().Length + ", " + doc.data().NumberOfExercises;
-                                    var image = "./images/" + doc.data().Image;
+                                    var image = "./images/workoutImages/" + doc.data().Image;
                                     var link = doc.data().Link;
                                     let newcard = CardTemplate.content.cloneNode(true);
                                     console.log(title);
@@ -267,9 +267,9 @@
                                     newcard.querySelector('.title-text-black').innerHTML = title;
                                     newcard.querySelector('.card-text').innerHTML = details;
                                     newcard.querySelector('.card-image').src = image;
-                                    newcard.querySelector('.workout-link').href = "./exercises/" + link + ".html"
-                
-                                    console.log(newcard);
+                                    newcard.querySelector('.workout-link').href = "./exercise.html?collection=" + difficulty + "&id=" + muscleAreas[i] 
+                                    
+                                    console.log(newcard);   
                                     document.getElementById(doc.data().Name + "-goes-here").appendChild(newcard);
                                 }
                                 i++;
@@ -281,9 +281,6 @@
             
             
         }
-    //var difficulty
-    //getDifficulty()
-    //console.log(difficulty)
     displayCards();
     </script>
 
