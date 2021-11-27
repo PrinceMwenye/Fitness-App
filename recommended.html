@@ -41,15 +41,32 @@
 
 <body>
 
+    <div id="recommended">
+
+    </div>
+
+
     <script>
-        const recommended = db.collection("Reviews").where("Recommend", "==", "No")
+        const recommended = db.collection("Reviews").where("Recommend", "==", "Yes")
             .get()
             .then(recom => {
 
                 size = recom.size;
                 recomendations = recom.docs;
-                console.log(recomendations[0].data());
+                var code = recomendations[0].data()['code'];
 
+
+
+            })
+
+
+        const url = db.collection("Workouts").where("Beach workouts", "==", code)
+            .get()
+            .then(url_parameter => {
+
+
+                recoms = url_parameter.docs;
+                console.log(recoms)
             })
     </script>
 
