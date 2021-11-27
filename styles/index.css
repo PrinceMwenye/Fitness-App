@@ -1,0 +1,23 @@
+header{
+  margin: 0;
+}
+
+#myCarousel{
+  margin-top: 55px;
+}
+
+h1{
+  text-shadow: 2px 2px black;
+}
+
+.carousel-caption > p{
+  text-shadow: 2px 2px black;
+}
+
+.col-lg-4{
+  margin-top: 25px;
+}
+
+.col-lg-4 > p{
+  color: grey; font-style: italic;
+}

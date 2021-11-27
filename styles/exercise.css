@@ -1,0 +1,12 @@
+.card{
+  max-width: 540px;
+}
+
+.img-fluid{
+  width: 150px;
+   height: 100px;
+}
+
+.text-black{
+  margin-bottom: 25px;
+}
