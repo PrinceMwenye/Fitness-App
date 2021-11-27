@@ -152,7 +152,6 @@
             let Description = document.getElementById("description").value;
 
 
-
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     var currentUser = db.collection("users").doc(user.uid);
