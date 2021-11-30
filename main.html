@@ -39,7 +39,7 @@
 
 <body>
     <header >
-
+        <!-- Navbar --> 
         <nav class="navbar navbar-dark bg-dark fixed-top">
 
             <div class="container-fluid justify-content-between">
@@ -71,6 +71,8 @@
                             aria-label="Close"></button>
                     </div>
 
+                    <!-- Hamburger Menu -->
+
                     <div class="offcanvas-body">
                         <ul class="navbar-nav flex-grow-1 pe-3">
 
@@ -92,6 +94,7 @@
                                 <a class="nav-link" href="location.html">Explore locations</a>
                             </li>
                             
+                            <!-- Log out button -->
                             <li class="nav-item border-top">
                                 <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
                             </li> 
@@ -122,7 +125,10 @@
     </template>
 
     <main>
+        <!-- here goes user's name -->
         <h1 class="text-black text-center"><span id="name-goes-here"></span>'s work-out</h1>
+        
+        <!-- here goes information about user's workouts -->
         <div class="album py-5">
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -180,6 +186,7 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
@@ -229,18 +236,20 @@
     </div>
 
     <script>
+        //The following scripts do not work outside of this file
+
         // Insert the name of the user in the title
         function insertName() {
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
                 if (user) {
-                    // Do something for the current logged-in user here: 
                     console.log(user.uid);
                     //go to the correct user document by referencing to the user uid
                     currentUser = db.collection("users").doc(user.uid);
                     //get the document for current user.
                     currentUser.get()
                         .then(userDoc => {
+                            // put the the name into the page's title
                             var user_Name = userDoc.data().name;
                             console.log(user_Name);
                             $("#name-goes-here").text(user_Name);
@@ -255,26 +264,29 @@
 
         // Display main content of the page
         function displayCards() {
+            // clones the template
             let CardTemplate = document.getElementById("CardTemplate");
             var muscleAreas = [];
-            var difficulty = "test";
+            var difficulty = "";
 
             firebase.auth().onAuthStateChanged(user => {
                 // Check if user is signed in:
                 if (user) {
-                    // Do something for the current logged-in user here: 
                     console.log(user.uid);
                     //go to the correct user document by referencing to the user uid
                     currentUser = db.collection("users").doc(user.uid);
                     currentUser.get().then(userDoc => {
+                        // get user's workout difficulty and muscle areas
                         difficulty = userDoc.data().workoutDifficulty; 
                         console.log(difficulty);
                         muscleAreas = userDoc.data().muscleAreas;
                         console.log(muscleAreas);
+                        // go to the given difficulty collection to get the muscle areas documents
                         db.collection(difficulty).get().then(snap => {
                             var i = 0
                             console.log("inside");
                             snap.forEach(doc => {
+                                // if muscle area is in user preferences, put its fields in the cloned template
                                 if (muscleAreas.includes(doc.data().Name)){
                                     console.log("inside for each");
                                     var title = difficulty + " " + doc.data().Name;
