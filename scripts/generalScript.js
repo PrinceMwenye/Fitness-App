@@ -55,7 +55,7 @@ function preferredLocation() {
 
 
 
-
+// Beach workouts
 function read_display_beach_workout_one() {
     console.log("Hello")
     db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
