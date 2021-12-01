@@ -21,3 +21,10 @@ h1{
 .col-lg-4 > p{
   color: grey; font-style: italic;
 }
+
+.pic{
+  border-radius: 50%;
+  width: 140px;
+  height: 140px; 
+  border: 1px solid black;
+}
