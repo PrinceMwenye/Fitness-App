@@ -51,3 +51,63 @@ function preferredLocation() {
         }
     });
 }
+
+
+
+
+
+function read_display_beach_workout_one() {
+    console.log("Hello")
+    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
+        .onSnapshot(BeachWork => { //arrow notation
+            console.log("current document data: " + BeachWork.data().beachone); //.data() returns data object
+            document.getElementById("beachone").src = BeachWork.data().beachone; //using javascript to display the data on the right place
+
+        })
+
+
+}
+
+function read_display_beach_workout_two() {
+    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
+        .onSnapshot(BeachWork => { //arrow notation
+            // console.log("current document data: " + BeachWork.data().trailtwo); //.data() returns data object
+            document.getElementById("beachworktwo").src = BeachWork.data().beachworktwo; //using javascript to display the data on the right place
+
+        })
+}
+
+function read_display_beach_workout_three() {
+    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
+        .onSnapshot(BeachWork => { //arrow notation
+            // console.log("current document data: " + BeachWork.data().trailthree); //.data() returns data object
+            document.getElementById("beachthree").src = BeachWork.data().beachthree; //using javascript to display the data on the right place
+
+        })
+}
+
+
+
+function setWorkoutData(id) {
+    localStorage.setItem('WorkoutID', id);
+}
+
+
+
+// function display_Workouts() {
+//     db.collection("Workouts").get()
+//         .then(allWorkouts => {
+//             allWorkouts.forEach(doc => {
+//                 var Workoutname = doc.data().name; //gets the name field
+//                 var WorkoutID = doc.data().code; //gets the unique ID field
+//                 document.getElementById("beachthree").innerText = Workoutname;
+//             })
+
+//         })
+// }
+// display_Workouts();
+
+
+read_display_beach_workout_one();
+read_display_beach_workout_two();
+read_display_beach_workout_three();
