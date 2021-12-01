@@ -47,7 +47,7 @@ function preferredLocation() {
 
                 })
         } else {
-            // No user is signed in.
+
         }
     });
 }
