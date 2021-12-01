@@ -32,7 +32,7 @@ function preferredLocation() {
                     // document.getElementById("locationpreference").innerHTML = location;
 
                     if (location == "Home") {
-                        window.location.assign("indoorworkuts.html");
+                        window.location.assign("indoorworkouts.html");
 
                     } else if (location == "Park") {
 
