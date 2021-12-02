@@ -21,4 +21,9 @@
         iframe {
             border: 3px solid black;
         }
+
+        #page_header{
+            text-align: center;
+            font-size: xx-large;
+        }
   
