@@ -18,30 +18,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/video-page.css">
 
-    <!-- <style>
-        body {
-            margin: 0 3%;
-        }
-        
-        .grid-container {
-            width: 100%;
-            grid-template-columns: max-content;
-            justify-content: center;
-            align-content: center;
-        }
-        
-        .grid-item iframe {
-            width: 100%;
-        }
-        
-        .grid-item1 {
-            margin-top: 17%;
-        }
-        
-        iframe {
-            border: 3px solid black;
-        }
-    </style> -->
+
 
     <!-- Firebase 8 CDN's -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -139,9 +116,9 @@
 
             <iframe id="source0" width="300" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="video-info">
-                <h2>Title:</h2>
-                <h2>Length:</h2>
-                <h2>Author:</h2>
+                <h2>Title: DON'T QUIT </h2>
+                <h2>Length: 11:53</h2>
+                <h2>Author: AlexKaltsMotivation</h2>
             </div>
 
         </div>
@@ -150,9 +127,9 @@
             <iframe id="source1" width="300" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             <div class="video-info">
-                <h2 id="a3">Title:</h2>
-                <h2>Length:</h2>
-                <h2>Author:</h2>
+                <h2 id="a3">Title: DON'T QUIT</h2>
+                <h2>Length: 11:53</h2>
+                <h2>Author: AlexKaltsMotivation</h2>
             </div>
 
         </div>
@@ -160,9 +137,9 @@
 
             <iframe id="source2" width="300" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="video-info">
-                <h2>Title:</h2>
-                <h2>Length:</h2>
-                <h2>Author:</h2>
+                <h2>Title: FOCUS , LISTEN, LIFT</h2>
+                <h2>Length: 1:15:56</h2>
+                <h2>Author: MulliganBrothers</h2>
             </div>
 
         </div>
@@ -170,9 +147,9 @@
 
             <iframe id="source3" width="300" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="video-info">
-                <h2>Title:</h2>
-                <h2>Length:</h2>
-                <h2>Author:</h2>
+                <h2>Title: FOCUS ON YOURSELF NOT OTHERS</h2>
+                <h2>Length: 14:57</h2>
+                <h2>Author: Law of Attraction Coaching</h2>
             </div>
 
         </div>
@@ -180,9 +157,9 @@
 
             <iframe id="source4" width="300" height="450" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="video-info">
-                <h2>Title:</h2>
-                <h2>Length:</h2>
-                <h2>Author:</h2>
+                <h2>Title: The Most Motivating 6 Minutes of Your Life</h2>
+                <h2>Length: 6:00</h2>
+                <h2>Author: Video Advice</h2>
             </div>
 
         </div>
@@ -238,47 +215,7 @@
         </footer>
     </div>
 
-    <!-- <script>
-        // function getVideoLinks() {
-        //     let links = [];
-        //     db.collection("motivational").doc("video_links")
-        //         .onSnapshot(videoLink => {
 
-        //             console.log(videoLink.data().v1)
-        //             document.getElementById('a3').innerHTML = videoLink.data().v1;
-
-        //         })
-
-
-        // }
-        // getVideoLinks();
-
-        function getVideoLinks() {
-
-            let val;
-            db.collection("motivational").doc("video_links").onSnapshot(el => {
-                val = el.data().links;
-                for (i = 0; i < val.length; i++) {
-                    console.log(val[i])
-                    console.log("source" + i.toString())
-                    document.getElementById("source" + i.toString()).src = val[i]
-                }
-            })
-        }
-
-        getVideoLinks();
-
-
-
-
-
-
-
-
-
-
-        // console.log(links.length)
-    </script> -->
 
     <script src="script/video.js"></script>
 
