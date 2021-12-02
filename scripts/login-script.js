@@ -1,3 +1,4 @@
+// initialize ui for authentication
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
   callbacks: {
@@ -16,9 +17,9 @@ var uiConfig = {
             console.log("Error adding new user: " + error);
           });
       } else {
-        return true;
+        return true; // user already registered
       }
-      return false;
+      return false; // error
     },
     uiShown: function () {
       // The widget is rendered.
@@ -30,18 +31,12 @@ var uiConfig = {
   signInFlow: 'popup',
   signInSuccessUrl: '../main.html',
   signInOptions: [
-    // Leave the lines as is for the providers you want to offer your users.
-    //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    //firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    //firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
-  tosUrl: '<your-tos-url>',
+  tosUrl: '<your-tos-url>', // we don't have any
   // Privacy policy url.
-  privacyPolicyUrl: '<your-privacy-policy-url>'
+  privacyPolicyUrl: '<your-privacy-policy-url>' // we don't have any
 };
 // The start method will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);

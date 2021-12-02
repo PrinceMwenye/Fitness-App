@@ -21,12 +21,14 @@ function saveUserInfo(){
         
         currentUser = db.collection("users").doc(user.uid) // gets user collection
         console.log(currentUser);
+        // get the data from the html file
         var workoutDifficutly = document.getElementById('difficulty').value; 
         var workoutsPerWeek = document.getElementById('rangePerWeek').value;
         var minutesPerWorkout = document.getElementById('rangePerWorkout').value;
 
         console.log(workoutDifficutly);
 
+        //update the database
         currentUser.update({
             "workoutDifficulty": workoutDifficutly,
             "workoutsPerWeek": workoutsPerWeek,
@@ -34,6 +36,7 @@ function saveUserInfo(){
             
         })
         .then(() => {
+            // go to the next page
             window.location.assign("preferences-continuation.html");
         })
     });

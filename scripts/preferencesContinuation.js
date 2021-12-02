@@ -2,6 +2,7 @@
 function saveUserInfo() {
   firebase.auth().onAuthStateChanged(user => {
       currentUser = db.collection("users").doc(user.uid);// gets user collection
+      //get the data from the html file
       var location = document.getElementById('location').value;
       var equipment = null;
       if (document.getElementById('noEquipment').checked){
@@ -23,12 +24,14 @@ function saveUserInfo() {
       console.log(location)
       console.log(equipment)
       
+      //updates the database 
       currentUser.update({
           "preferredLocation": location,
           "equipment": equipment,
           "muscleAreas": focusMuscleAreas
       })
       .then(() => {
+          // go to the next page
           console.log("done")
           window.location.assign("../main.html");
       })

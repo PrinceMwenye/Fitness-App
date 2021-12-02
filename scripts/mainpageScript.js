@@ -88,36 +88,33 @@ function preferredLocation() {
       // console.log(user)
 
       if (user) {
+        //go to the correct user document by referencing to the user uid
+        currentUser = db.collection("users").doc(user.uid);
+        //get the document for current user.
+        currentUser.get()
+            .then(userDoc => {
+                // Get user's prefered location
+                var location = userDoc.data()['preferredLocation'];
+                // console.log(location);
 
-          //go to the correct user document by referencing to the user uid
-          currentUser = db.collection("users").doc(user.uid);
-          //get the document for current user.
-          currentUser.get()
-              .then(userDoc => {
-                  // Get user's prefered location
-                  var location = userDoc.data()['preferredLocation'];
-                  // console.log(location);
+                // change the link to workouts based on the preference
+                if (location == "Home") {
 
 
-                  if (location == "Home") {
+                    window.location.assign("indoorworkouts.html");
 
+                } else if (location == "Park") {
 
-                      window.location.assign("indoorworkouts.html");
+                    window.location.assign("outdoorworkouts.html")
 
-                  } else if (location == "Park") {
+                } else if (location == "Beach") {
 
-                      window.location.assign("outdoorworkouts.html")
-
-                  } else if (location == "Beach") {
-
-                      window.location.assign("beach.html")
-                  } else {
-                      console.log("invalid location")
-                  }
-
-              })
-      } else {
-
+                    window.location.assign("beach.html")
+                } else {
+                    console.log("invalid location")
+                }
+            })
+      }else {
       }
   });
 }

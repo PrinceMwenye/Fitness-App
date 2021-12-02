@@ -78,6 +78,7 @@ function saveUserInfo() {
 
     currentUser = db.collection("users").doc(user.uid) // gets user collection
     console.log(currentUser);
+    // get the data from the html file
     var name = document.getElementById("name").value;
     var workoutDifficulty = document.getElementById('difficulty').value;
     var workoutsPerWeek = document.getElementById('rangePerWeek').value;
@@ -105,6 +106,7 @@ function saveUserInfo() {
     console.log(location)
     console.log(equipment)
 
+    //updates the database
     currentUser.update({
         "name": name,
         "workoutDifficulty": workoutDifficulty,
@@ -115,6 +117,7 @@ function saveUserInfo() {
         "muscleAreas": focusMuscleAreas
       })
       .then(() => {
+        // displays the success message
         document.getElementById("saveAnswer").innerHTML = "Your settings were successfully saved!"
         console.log(document.getElementById("saveAnswer").innerHTML)
       })
