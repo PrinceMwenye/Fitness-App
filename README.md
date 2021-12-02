@@ -28,6 +28,12 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
+├── account                  # Folder for account related HTML files
+    ├── login.html           # login HTML file, this is where the user log in or sign up
+    ├── preferences.html     # preferences HTML file, this is where user sets up preferences for their workout
+    ├── preferences-continuation.html    # continuation to preferences HTML file
+    └── settings.html        # settings HTML file where user can change their preferences
+
 ├── images                   # Folder for images
     ├── workoutImages            # Folder for exercise gifs and workouts images
         ├── chestGifs                # Folder for chest exercise gifs
@@ -75,7 +81,7 @@ It has the following subfolders and files:
     /location.css            # CSS for location page
     /login.css               # CSS for login page
     /                        #
-    
+
 Firebase hosting files: 
 ├── .firebaserc...
 

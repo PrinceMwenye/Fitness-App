@@ -43,6 +43,8 @@
 
 <body>
     <header>
+        <!-- Navbar -->
+
         <nav class="navbar navbar-dark bg-dark fixed-top">
 
         <div class="container-fluid justify-content-between">
@@ -77,6 +79,7 @@
             </div>
 
             <div class="offcanvas-body">
+                <!-- Hamburger Menu -->
 
                 <ul class="navbar-nav flex-grow-1 pe-3">
 
@@ -113,6 +116,7 @@
 
     </header>
 
+    <!-- Choose Preferences -->
     <div class="container">
         <main>
             <div class="py-5 text-center">
@@ -213,6 +217,7 @@
         </main>
     </div>
 
+    <!-- Choose Preferences -->
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
@@ -263,44 +268,7 @@
         
     </div>
 
-    <script>
-        // Writes the user's information to the database
-        function saveUserInfo() {
-            firebase.auth().onAuthStateChanged(user => {
-                currentUser = db.collection("users").doc(user.uid);// gets user collection
-                var location = document.getElementById('location').value;
-                var equipment = null;
-                if (document.getElementById('noEquipment').checked){
-                    equipment = document.getElementById('noEquipment').value;
-                }else{
-                    equipment = document.getElementById('hasEquipment').value;
-                }
-                console.log(document.forms.length);
-                var focusMuscleAreas = [];
-                var muscleAreas = document.forms[1];
-                console.log(muscleAreas);
-                var i;
-                for (i = 0; i < muscleAreas.length; i++){
-                    if (muscleAreas[i].checked) {
-                        focusMuscleAreas.push(muscleAreas[i].value)
-                    }
-                }
-                console.log(focusMuscleAreas)
-                console.log(location)
-                console.log(equipment)
-                
-                currentUser.update({
-                    "preferredLocation": location,
-                    "equipment": equipment,
-                    "muscleAreas": focusMuscleAreas
-                })
-                .then(() => {
-                    console.log("done")
-                    window.location.assign("../main.html");
-                })
-            });
-        }
-    </script>
+    <script src="../scripts/preferences-continuation.js"></script>
 </body>
 
 </html>
