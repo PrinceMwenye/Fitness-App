@@ -55,6 +55,8 @@ function preferredLocation() {
 }
 
 
+
+// display user's preferred location
 function preferredLocation_display() {
     firebase.auth().onAuthStateChanged(user => {
         // console.log(user)
@@ -69,7 +71,10 @@ function preferredLocation_display() {
                     // Get user's prefered location
                     var location = userDoc.data()['preferredLocation'];
                     // console.log(location);
+                    // User's favourite location displayed
                     document.getElementById("current-favourite").innerHTML = "Current favourite location: " + location
+
+                    // User's favourite location displayed on button
                     document.getElementById("locationbutton").innerHTML = location + " Workouts"
 
                 })
