@@ -29,7 +29,6 @@ function preferredLocation() {
                     // Get user's prefered location
                     var location = userDoc.data()['preferredLocation'];
                     // console.log(location);
-                    // document.getElementById("locationpreference").innerHTML = location;
 
                     if (location == "Home") {
                         window.location.assign("indoorworkouts.html");
@@ -55,12 +54,12 @@ function preferredLocation() {
 
 
 
-// Beach workouts
+// Beach workouts displayed from database
 function read_display_beach_workout_one() {
     console.log("Hello")
-    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-        .onSnapshot(BeachWork => { //arrow notation
-            console.log("current document data: " + BeachWork.data().beachone); //.data() returns data object
+    db.collection("Workouts").doc("Beach workouts")
+        .onSnapshot(BeachWork => {
+            console.log("current document data: " + BeachWork.data().beachone);
             document.getElementById("beachone").src = BeachWork.data().beachone; //using javascript to display the data on the right place
 
         })
@@ -68,44 +67,32 @@ function read_display_beach_workout_one() {
 
 }
 
+// display second beach workout
 function read_display_beach_workout_two() {
-    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-        .onSnapshot(BeachWork => { //arrow notation
-            // console.log("current document data: " + BeachWork.data().trailtwo); //.data() returns data object
+    db.collection("Workouts").doc("Beach workouts")
+        .onSnapshot(BeachWork => {
+
             document.getElementById("beachworktwo").src = BeachWork.data().beachworktwo; //using javascript to display the data on the right place
 
         })
 }
 
+// display third beach workout
 function read_display_beach_workout_three() {
-    db.collection("Workouts").doc("Beach workouts") //name of the collection and documents should matach excatly with what you have in Firestore
-        .onSnapshot(BeachWork => { //arrow notation
-            // console.log("current document data: " + BeachWork.data().trailthree); //.data() returns data object
+    db.collection("Workouts").doc("Beach workouts")
+        .onSnapshot(BeachWork => {
+
             document.getElementById("beachthree").src = BeachWork.data().beachthree; //using javascript to display the data on the right place
 
         })
 }
 
 
-
+// local storage
 function setWorkoutData(id) {
     localStorage.setItem('WorkoutID', id);
 }
 
-
-
-// function display_Workouts() {
-//     db.collection("Workouts").get()
-//         .then(allWorkouts => {
-//             allWorkouts.forEach(doc => {
-//                 var Workoutname = doc.data().name; //gets the name field
-//                 var WorkoutID = doc.data().code; //gets the unique ID field
-//                 document.getElementById("beachthree").innerText = Workoutname;
-//             })
-
-//         })
-// }
-// display_Workouts();
 
 
 read_display_beach_workout_one();
@@ -115,6 +102,7 @@ read_display_beach_workout_three();
 
 
 // Get recommended beach workout (random)
+// populate recommended workouts page with random workout which ha been recommended
 const recommended = db.collection("Reviews").where("Recommend", "==", "Yes")
     .get()
     .then(recom => {
