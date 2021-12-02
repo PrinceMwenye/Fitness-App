@@ -39,8 +39,9 @@
 </head>
 
 <body>
-    <header >
 
+    <header >
+        <!-- Navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
 
             <div class="container-fluid justify-content-between">
@@ -68,6 +69,8 @@
                         <button type="button" class="btn-close  btn-close-white text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
+
+                    <!-- Hamburger Menu -->
                     <div class="offcanvas-body">
                         <ul class="navbar-nav flex-grow-1 pe-3">
                             <li class="nav-item">
@@ -94,9 +97,10 @@
         </nav>
     </header>
 
-    <h1 class=""></h1>
-
+    
     <main id="template">
+
+        <!-- Exercise Template -->
         <template id="CardTemplate">
             <div class="card mb-3">
                 <div class="row g-0">
@@ -111,8 +115,11 @@
             </div>
         </template>
 
+        <!-- Exercise title -->
+
         <h1 class="text-black text-center"><span id="name-goes-here"></span>exercises</h1>
 
+        <!-- Exercises -->
         <div class="container-fluid">
             <div id="exercise0"></div>
             <div id="exercise1"></div>
@@ -135,6 +142,7 @@
 
     </main>
 
+    <!-- Footer -->
     <div class="container">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
             <div class="col-md-4 d-flex align-items-center">
@@ -183,41 +191,8 @@
         </footer>
     </div>
 
-    <script>
-        function showContent() {
-            // create a URL object
-            let CardTemplate = document.getElementById("CardTemplate"); 
-            let params = new URL(window.location.href);
-            let id = params.searchParams.get("id"); //parse "id"
-            let collection = params.searchParams.get("collection"); //parse "collection"
-            let subcollection = "workouts";
-            console.log(subcollection)
-            pageHeading = collection + ": " + id + " "
-            $("#name-goes-here").text(pageHeading)
-            db.collection(collection).doc(id).collection(subcollection).get().then(snap => {
-                var i = 0
-                console.log("inside");
-                snap.forEach(doc => {
-                    console.log("inside for each");
-                        var name = doc.data().name;
-                        var length = doc.data().length;
-                        var gif = "./images/workoutImages/" +id + "Gifs/"+ doc.data().gif + ".gif";
-                        let newcard = CardTemplate.content.cloneNode(true);
-                        console.log(name);
-                        console.log(length);
-                        console.log(gif);
     
-                        newcard.querySelector('.card-title').innerHTML = name;
-                        newcard.querySelector('.card-text').innerHTML = length;
-                        newcard.querySelector('.img-fluid').src = gif;
-                        
-                        console.log(newcard);   
-                        document.getElementById("exercise" + i).appendChild(newcard);
-                })
-            })
-        }
-        showContent();
-    </script>
+    <script src="scripts/exersiseScript.js"></script>
 </body>
 
 </html>
