@@ -18,30 +18,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style/motivational_type-selection.css">
 
-    <!-- <style>
-        body {
-            margin: 0 3%;
-        }
-        
-        .grid-container {
-            width: 100%;
-            grid-template-columns: max-content;
-            justify-content: center;
-            align-content: center;
-        }
-        
-        .grid-item iframe {
-            width: 100%;
-        }
-        
-        .grid-item1 {
-            margin-top: 17%;
-        }
-        
-        iframe {
-            border: 3px solid black;
-        }
-    </style> -->
+
 
     <!-- Firebase 8 CDN's -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -129,11 +106,6 @@
 
     </header>
 
-    <!-- 
-    <br>
-    <br>
-    <br> -->
-
 
 
     <h1 id="thank" style="display: none;">Thank you, your story was received</h1>
@@ -150,24 +122,6 @@
 
 
 
-
-    <!-- <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">First Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="first name">
-            <label for="exampleFormControlInput1">Last Name</label>
-            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="last name">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
-        </div>
-
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Your Success Story</label>
-            <textarea class="form-control" id="exampleFormControlInput4" rows="12"></textarea>
-        </div>
-
-        <button  onclick="writeStory()">Submit</button>
-    </form> -->
 
 
 
@@ -221,68 +175,7 @@
     </div>
 
 
-    <script>
-        ////////////////////////////////////
-        // function writeStory() {
-        //     //define a variable for the collection you want to create in Firestore to populate data
-        //     var hikesRef = db.collection("story");
 
-        //     var firstName = document.getElementById('exampleFormControlInput1').value;
-        //     var lastName = document.getElementById('exampleFormControlInput2').value;
-        //     var email = document.getElementById('exampleFormControlInput3').value;
-        //     var sStoey = document.getElementById('exampleFormControlInput4').value;
-
-        //     console.log(firstName + " " + lastName + " " + email + sStoey)
-
-
-
-
-        //     hikesRef.add({ //add to database, autogen ID
-        //         fn: firstName + "",
-        //         ln: lastName + "",
-        //         e: email + "",
-        //         s: sStoey + ""
-        //     })
-
-        //     document.getElementById('exampleFormControlInput1').style.display = "none"
-        //     document.getElementById('exampleFormControlInput2').style.display = "none"
-        //     document.getElementById('exampleFormControlInput3').style.display = "none"
-        //     document.getElementById('exampleFormControlInput4').style.display = "none"
-        //     document.getElementById('label1').style.display = "none"
-        //     document.getElementById('label2').style.display = "none"
-        //     document.getElementById('label3').style.display = "none"
-        //     document.getElementById('label4').style.display = "none"
-        //     document.getElementById('send_button').style.display = "none"
-        //     document.getElementById('thank').style.display = "inline"
-
-        //     // window.location.href = "thanks.html"
-        // }
-
-
-
-        // document.getElementById("send_button").addEventListener("click", function() {
-        //     window.location.href = "thanks.html"
-        // });
-
-        // document.getElementById("send_button").addEventListener("click", writeStory);
-
-
-
-
-
-        // console.log(links.length)
-
-
-        // db.collection('story')
-        //     .get()
-        //     .then(querySnapshot => {
-        //         const documents = querySnapshot.docs.map(doc => doc.data())
-        //         let r = documents[Math.floor(Math.random() * documents.length)]
-        //         console.log(r)
-
-        //     })
-        //
-    </script>
 
     <script src="script/submit.js"></script>
 
