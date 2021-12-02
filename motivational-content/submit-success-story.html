@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html onload="document.getElementById('bb').style.background = 'red'">
 
 <head>
     <meta charset="utf-8">
@@ -16,8 +16,9 @@
 
     <!-- Google Icons (Material Design)-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style/motivational_type-selection.css">
 
-    <style>
+    <!-- <style>
         body {
             margin: 0 3%;
         }
@@ -36,7 +37,11 @@
         .grid-item1 {
             margin-top: 17%;
         }
-    </style>
+        
+        iframe {
+            border: 3px solid black;
+        }
+    </style> -->
 
     <!-- Firebase 8 CDN's -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -50,92 +55,120 @@
     <!-- Link to the api keys for your firebase project -->
 
     <script src="../scripts/firebaseAPI.js"></script>
+
+    <!-- Custom Scripts and CSS -->
+    <script src="../scripts/generalScript.js"></script>
+    <link href="../styles/generalStyle.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="bb">
     <header>
         <nav class="navbar navbar-dark bg-dark fixed-top">
+
             <div class="container-fluid justify-content-between">
-                <a class="navbar-brand" href="../main.html">Fitness4all</a>
-                <i class="material-icons" style="color: white; margin-right: 50px;">fitness_center</i>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
+                  0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
+            </svg>
+
+                <a href="../index.html"><i class="material-icons">fitness_center</i></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+                <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Offcanvas</h5>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
+                      0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
+                </svg>
+
+                        <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
+
                         <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
                     </div>
+
                     <div class="offcanvas-body">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../main.html">My account</a>
-                            </li>
+
+                        <ul class="navbar-nav flex-grow-1 pe-3">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="../exercise.html">My work-out</a>
+                                <a class="nav-link" href="../main.html">My work-out</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="motivational_type_selection.html">My motivation</a>
+
+                            <li class="nav-item border-top">
+                                <a aria-current="page" class="nav-link active" href="./motivational_type_selection.html">My
+                      motivation</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../Login/preferences.html">My settings</a>
+
+                            <li class="nav-item border-top">
+                                <a class="nav-link" href="../account/settings.html">My settings</a>
                             </li>
-                            <li class="nav-item">
+
+                            <li class="nav-item border-top">
                                 <a class="nav-link" href="../location.html">Explore locations</a>
                             </li>
+
+                            <li class="nav-item border-top">
+                                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
+                            </li>
+
                         </ul>
+
                     </div>
+
                 </div>
+
             </div>
+
         </nav>
+
     </header>
 
+
     <br>
     <br>
     <br>
-    <br>
-
-    <h1 style="text-align: center;">Motivational Audio Page:</h1>
 
 
 
+    <h1 id="thank" style="display: none;">Thank you, your story was received</h1>
+    <label for="exampleFormControlInput1" id="label1">First Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="first name">
+    <label for="exampleFormControlInput1" id="label2">Last Name</label>
+    <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="last name">
+    <label for="exampleFormControlInput1" id="label3">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
+    <label for="exampleFormControlTextarea1" id="label4">Your Success Story</label>
+    <textarea class="form-control" id="exampleFormControlInput4" rows="12"></textarea>
+    <button id="send_button" onclick="writeStory()">Submit</button>
 
 
 
-    <div class="grid-container">
-        <div class="grid-item grid-item1">
 
-            <!-- https://open.spotify.com/embed/show/4K2zqJRgYyJ8SaGYRgtQUj?utm_source=generator -->
 
-            <iframe id="source0" src="" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <br>
+    <!-- <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">First Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="first name">
+            <label for="exampleFormControlInput1">Last Name</label>
+            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="last name">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
         </div>
-        <div class="grid-item grid-item2">
 
-            <iframe id="source1" src="" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <br>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Your Success Story</label>
+            <textarea class="form-control" id="exampleFormControlInput4" rows="12"></textarea>
         </div>
-        <div class="grid-item grid-item3">
 
-            <iframe id="source2" src="" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <br>
-        </div>
-        <div class="grid-item grid-item4">
+        <button  onclick="writeStory()">Submit</button>
+    </form> -->
 
-            <iframe id="source3" src="" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            <br>
-        </div>
-        <div class="grid-item grid-item5">
-
-            <iframe id="source4" src="" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-        </div>
-    </div>
 
 
 
@@ -185,28 +218,73 @@
                 </li>
             </ul>
         </footer>
+    </div>
 
 
-        <script>
-            function getVideoLinks() {
+    <script>
+        ////////////////////////////////////
+        // function writeStory() {
+        //     //define a variable for the collection you want to create in Firestore to populate data
+        //     var hikesRef = db.collection("story");
 
-                let val;
-                db.collection("motivational").doc("audio_links").onSnapshot(el => {
-                    val = el.data().links;
-                    for (i = 0; i < val.length; i++) {
-                        console.log(val[i])
-                        console.log("source" + i.toString())
-                        document.getElementById("source" + i.toString()).src = val[i]
-                    }
-                })
-            }
+        //     var firstName = document.getElementById('exampleFormControlInput1').value;
+        //     var lastName = document.getElementById('exampleFormControlInput2').value;
+        //     var email = document.getElementById('exampleFormControlInput3').value;
+        //     var sStoey = document.getElementById('exampleFormControlInput4').value;
 
-            getVideoLinks();
-        </script>
+        //     console.log(firstName + " " + lastName + " " + email + sStoey)
 
 
 
 
+        //     hikesRef.add({ //add to database, autogen ID
+        //         fn: firstName + "",
+        //         ln: lastName + "",
+        //         e: email + "",
+        //         s: sStoey + ""
+        //     })
+
+        //     document.getElementById('exampleFormControlInput1').style.display = "none"
+        //     document.getElementById('exampleFormControlInput2').style.display = "none"
+        //     document.getElementById('exampleFormControlInput3').style.display = "none"
+        //     document.getElementById('exampleFormControlInput4').style.display = "none"
+        //     document.getElementById('label1').style.display = "none"
+        //     document.getElementById('label2').style.display = "none"
+        //     document.getElementById('label3').style.display = "none"
+        //     document.getElementById('label4').style.display = "none"
+        //     document.getElementById('send_button').style.display = "none"
+        //     document.getElementById('thank').style.display = "inline"
+
+        //     // window.location.href = "thanks.html"
+        // }
+
+
+
+        // document.getElementById("send_button").addEventListener("click", function() {
+        //     window.location.href = "thanks.html"
+        // });
+
+        // document.getElementById("send_button").addEventListener("click", writeStory);
+
+
+
+
+
+        // console.log(links.length)
+
+
+        // db.collection('story')
+        //     .get()
+        //     .then(querySnapshot => {
+        //         const documents = querySnapshot.docs.map(doc => doc.data())
+        //         let r = documents[Math.floor(Math.random() * documents.length)]
+        //         console.log(r)
+
+        //     })
+        //
+    </script>
+
+    <script src="script/submit.js"></script>
 
 
 </body>
