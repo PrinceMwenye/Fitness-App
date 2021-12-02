@@ -71,6 +71,8 @@ It has the following subfolders and files:
     /generalScript.js        # General script for all pages
     /mainpageScript.js       # Script for main page
     /
+    /preferences.js          # Script for preferences page
+    /preferencesContinuation.js     # Script for the second preferences page
     /settings.js             # Script for settings page
     /weather.js              # Script for weather page
 
