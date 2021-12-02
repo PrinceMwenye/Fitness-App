@@ -30,7 +30,10 @@ function preferredLocation() {
                     var location = userDoc.data()['preferredLocation'];
                     // console.log(location);
 
+
                     if (location == "Home") {
+
+
                         window.location.assign("indoorworkouts.html");
 
                     } else if (location == "Park") {
@@ -50,6 +53,60 @@ function preferredLocation() {
         }
     });
 }
+
+
+
+function preferredLocation_display() {
+    firebase.auth().onAuthStateChanged(user => {
+        // console.log(user)
+
+        if (user) {
+
+            //go to the correct user document by referencing to the user uid
+            currentUser = db.collection("users").doc(user.uid);
+            //get the document for current user.
+            currentUser.get()
+                .then(userDoc => {
+                    // Get user's prefered location
+                    var location = userDoc.data()['preferredLocation'];
+                    // console.log(location);
+                    document.getElementById("current-favourite").innerHTML = "Current favourite location: " + location
+
+                })
+        }
+
+
+    });
+}
+
+preferredLocation_display();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
