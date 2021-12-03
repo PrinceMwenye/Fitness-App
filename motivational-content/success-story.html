@@ -165,22 +165,8 @@
     </div>
 
 
-    <script>
-        function readStory() {
 
-            db.collection('story')
-                .get()
-                .then(querySnapshot => {
-                    const documents = querySnapshot.docs.map(doc => doc.data())
-                    let r = documents[Math.floor(Math.random() * documents.length)]
-                    document.getElementById("name").innerHTML = r.fn + " " + r.ln;
-                    document.getElementById("story_detail").innerHTML = r.s;
-                    console.log(r)
-
-                })
-
-        }
-    </script>
+    <script src="script/story.js"></script>
 
 
 </body>

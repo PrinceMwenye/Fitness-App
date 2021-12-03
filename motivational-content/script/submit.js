@@ -13,10 +13,10 @@ function writeStory() {
 
 
     hikesRef.add({ //add to database, autogen ID
-        fn: firstName + "",
-        ln: lastName + "",
-        e: email + "",
-        s: sStoey + ""
+        firstname: firstName + "",
+        lastname: lastName + "",
+        emailaddress: email + "",
+        story: sStoey + ""
     })
 
     document.getElementById('exampleFormControlInput1').style.display = "none"
