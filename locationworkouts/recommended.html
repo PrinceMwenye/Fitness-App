@@ -46,7 +46,7 @@
     <!-- Link to the api keys for your firebase project -->
     <script src="/scripts/firebaseAPI.js"></script>
 
-    <!-- Custom Scripts and CSS -->
+    <!-- Custom CSS -->
     <link href="/styles/generalStyle.css" rel="stylesheet">
 </head>
 
@@ -107,41 +107,7 @@
 
     </div>
 
-
-
-    <!-- Get recommended beach workout (random)  populate recommended workouts page with random workout which has been recommended -->
-
-    <script>
-        db.collection("Reviews").where("Recommend", "==", "Yes")
-            .get()
-            .then(recom => {
-
-                size = recom.size;
-                recomendations = recom.docs;
-                var code = recomendations[0].data()['code'];
-                console.log(code)
-
-                function read_recommended() {
-
-                    db.collection("Workouts").doc("Beach workouts")
-                        .onSnapshot(RecommendedDoc => {
-                            console.log(RecommendedDoc.data()[code])
-                            document.getElementById("recommended").src = RecommendedDoc.data()[code]
-                        })
-                }
-
-                read_recommended()
-
-            })
-    </script>
-
-
-
-
-
-
-
-    <!-- <script src="/scripts/generalScript.js"></script> -->
+    <script src="/scripts/recommended.js"></script>
 
 </body>
 
