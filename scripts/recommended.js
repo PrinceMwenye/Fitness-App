@@ -8,11 +8,11 @@ db.collection("Reviews").where("Recommend", "==", "Yes")
         size = recom.size;
         recomendations = recom.docs;
         var code = recomendations[0].data()['code'];
-        // console.log(code)
+        console.log(code)
 
         function read_recommended() {
 
-            db.collection("Workouts").doc("Beach workouts")
+            db.collection("Workouts").doc("Indoor Workouts")
                 .onSnapshot(RecommendedDoc => {
                     console.log(RecommendedDoc.data()[code])
                     document.getElementById("recommended").src = RecommendedDoc.data()[code]
