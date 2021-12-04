@@ -23,6 +23,7 @@ Content of the project folder:
 ├── .gitignore               # Git ignore file
 ├── index.html               # landing HTML file, this is what users see when you come to url
 ├── main.html                # main HTML file, this is where the tailored workout are displayed
+├── exercise.html             # main HTML file,contains gifs for exercises
 └── README.md
 
 It has the following subfolders and files:
