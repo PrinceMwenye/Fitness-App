@@ -1,3 +1,4 @@
+// Get current weather information
 var button = document.querySelector('.button');
 var inputValue = document.querySelector('.inputValue');
 var name = document.querySelector('.name');
@@ -10,6 +11,8 @@ let units = "metric"
 
 button.addEventListener('click', function() {
 
+
+    // Get current weather data from API and populate on weather html
 
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=f81e869ce68e56cb2fe9ed64be0a74b1&units=" + units)
 
@@ -28,7 +31,7 @@ button.addEventListener('click', function() {
                 extra.innerHTML = "Seems too cold 🥶 in " + nameValue + ". Stay warm"
                 extra.style.color = "blue"
                 weatherpicture.innerHTML = "<img src = '/images/coldweather.jpg'/>"
-
+                    // cold weather
 
             } else if (tempValue > 10 && tempValue < 30) {
                 extra.innerHTML = "Could be warm enough in " + nameValue + ", just drink enough water!"
@@ -36,7 +39,7 @@ button.addEventListener('click', function() {
 
                 weatherpicture.innerHTML = "<img src = '/images/hotweather.jpg'/>"
 
-
+                // hot weather
             } else {
                 extra.innerHTML = "Too hot for the outdoors!"
                 weatherpicture.innerHTML = "<img src = '/images/hotweatherwarning.jpeg'/>"
