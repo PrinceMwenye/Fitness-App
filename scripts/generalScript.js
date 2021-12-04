@@ -31,7 +31,7 @@ function read_display_beach_workout_two() {
     db.collection("Workouts").doc("Beach workouts")
         .onSnapshot(BeachWork => {
 
-            document.getElementById("beachworktwo").src = BeachWork.data().beachworktwo; //using javascript to display the data on the right place
+            document.getElementById("beachtwo").src = BeachWork.data().beachtwo; //using javascript to display the data on the right place
 
         })
 }
