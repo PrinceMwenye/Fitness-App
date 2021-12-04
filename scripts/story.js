@@ -1,4 +1,4 @@
-//this function is used to extra user storys from the DB
+//this function is used to extract user storiess from the DB
 function readStory() {
 
     //go to the story collection
