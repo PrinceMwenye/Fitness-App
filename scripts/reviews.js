@@ -1,3 +1,5 @@
+// Function to allow authenticated user to write a review
+
 let WorkoutID = localStorage.getItem("WorkoutID");
 
 
