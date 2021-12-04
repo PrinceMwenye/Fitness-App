@@ -35,6 +35,7 @@ function writeReview() {
                         Description: Description
 
                     }).then(() => {
+                        // direct user to success page
                         window.location.assign("/locationworkouts/Review_success.html");
                     })
                 })
