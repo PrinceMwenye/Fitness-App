@@ -13,38 +13,6 @@ function logOut() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Beach workouts displayed from database
 function read_display_beach_workout_one() {
     console.log("Hello")
@@ -89,28 +57,3 @@ function setWorkoutData(id) {
 read_display_beach_workout_one();
 read_display_beach_workout_two();
 read_display_beach_workout_three();
-
-
-
-// Get recommended beach workout (random)
-// populate recommended workouts page with random workout which ha been recommended
-const recommended = db.collection("Reviews").where("Recommend", "==", "Yes")
-    .get()
-    .then(recom => {
-
-        size = recom.size;
-        recomendations = recom.docs;
-        var code = recomendations[0].data()['code'];
-        // console.log(code)
-
-        function read_recommended() {
-            db.collection("Workouts").doc("Beach workouts")
-                .onSnapshot(RecommendedDoc => {
-                    console.log(RecommendedDoc.data()[code])
-                    document.getElementById("recommended").src = RecommendedDoc.data()[code]
-                })
-        }
-
-        read_recommended()
-
-    })
