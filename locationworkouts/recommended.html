@@ -53,43 +53,59 @@
 <body>
 
     <header>
+        <!-- Navbar -->
         <nav class="navbar navbar-dark bg-dark fixed-top">
+
             <div class="container-fluid justify-content-between">
+
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
                     0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()"/>
                 </svg>
-                <a href="/index.html"><i class="material-icons" style="color: white; margin-left: 25px;">fitness_center</i></a>
+
+                <a href="index.html"><i class="material-icons">fitness_center</i></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel" style="height: 100%">
+
+                <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
+
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
                             0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()"/>
                         </svg>
-                        <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel" style="margin-left: 0px;">Fitness4all</h5>
-                        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                        <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
+
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <div class="offcanvas-body" style="display: flex-center;">
-                        <ul class="navbar-nav flex-grow-1 pe-3" style="font-size: 1.3em; text-align: center; padding: 0 !important;">
+                    <!-- Hamburger Menu -->
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav flex-grow-1 pe-3">
+
                             <li class="nav-item">
-                                <a class="nav-link" href="/main.html">My work-out</a>
+                                <a class="nav-link" href="./main.html">My work-out</a>
                             </li>
+
                             <li class="nav-item border-top">
                                 <a class="nav-link" href="/motivational-content/motivational_type_selection.html">My
                                     motivation</a>
                             </li>
+
                             <li class="nav-item border-top">
                                 <a class="nav-link" href="/account/settings.html">My settings</a>
                             </li>
+
                             <li class="nav-item border-top">
-                                <a class="nav-link" href="/locationworkouts/location.html">Explore locations</a>
+                                <a aria-current="page" class="nav-link active" href="/locationworkouts/location.html">Explore locations</a>
                             </li>
+                            <!-- Log out button -->
                             <li class="nav-item border-top">
-                                <button type="button" class="btn btn-light" style="font-size: 1em; margin-top: 115%;" onclick="logOut()">Sign out</button>
+                                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -110,7 +126,7 @@
 
 
 
-
+    <!-- Footer -->
     <div class="container footer ">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
             <div class="col-md-4 d-flex align-items-center ">
