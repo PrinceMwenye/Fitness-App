@@ -1,3 +1,4 @@
+// populates the page with gifs showing how to do the assiciated exercises
 function showContent() {
   // create a template
   let CardTemplate = document.getElementById("CardTemplate"); 
