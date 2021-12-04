@@ -5,8 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application for tailored fitness programs
-This is just Amin. This is Nikolay. This is Prince.
+Web application with tailored workout programs.
 
 ## Technologies
 Technologies used for this project:
@@ -50,6 +49,23 @@ It has the following subfolders and files:
     /beach-workout.jpeg
     /beachpush.jpg
 
+
+
+
+It has the following subfolders and files:
+├── .git                                # Folder for git repo
+├── location workouts                   # Folder for location related HTML files
+    ├── beach.html                      # containes beach workouts
+    ├── indoorworkouts.html             # contains indoor workouts suitable for home
+    ├── location.html                   # contains main location workout options
+    └── outdoor.html                    # contains outdoor workouts
+    └── recommended.html                # contains recommended workout
+    └── Review_success.html             # contains reviews
+    └── reviews.html                    # shows reviews forms
+    └── trail.html                      # contains trail workouts
+    └── outoor.html                     # contains weather information
+
+
 ├── motivational_content     # Folder for motivational content
     ├── article_frames       # Folder for article frames
         ├── article_frame1.html     # article HTML file, this is where a single article is displayed
@@ -64,13 +80,15 @@ It has the following subfolders and files:
     ├── success_story.html   # story reading HTML file where user can read other people's success stories
     └── video_page.html      # video HTML file, this is where the motivational videos are displayed
 
+
+
 ├── node_modules             # Folder for node modules
 ├── scripts                  # Folder for scripts
     /exersiseScript.js       # Script for exercise page
     /firebaseAPI.js          # Script for all pages that use firebase
     /generalScript.js        # General script for all pages
     /mainpageScript.js       # Script for main page
-    /
+    /location.js             # Script for location workouts
     /preferences.js          # Script for preferences page
     /preferencesContinuation.js     # Script for the second preferences page
     /settings.js             # Script for settings page
@@ -87,6 +105,10 @@ It has the following subfolders and files:
 Firebase hosting files: 
 ├── .firebaserc...
 
+
+
+
+Contact
 
 ```
 
