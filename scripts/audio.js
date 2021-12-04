@@ -1,6 +1,6 @@
 
 // function to extract spotify links from the DB
-function getVideoLinks() {
+function getAudioLinks() {
 
     let val;
     //get access to the motivational collection and go to audio_links document 
@@ -16,4 +16,4 @@ function getVideoLinks() {
 }
 
 //call the function
-getVideoLinks();
+getAudioLinks();
