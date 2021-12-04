@@ -36,11 +36,11 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
     <!-- Link to the api keys for your firebase project -->
-    <script src="scripts/firebaseAPI.js"></script>
+    <script src="/scripts/firebaseAPI.js"></script>
 
     <!-- Custom Scripts and CSS -->
-    <script src="scripts/generalScript.js"></script>
-    <link href="styles/generalStyle.css" rel="stylesheet">
+    <script src="/scripts/generalScript.js"></script>
+    <link href="/styles/generalStyle.css" rel="stylesheet">
 </head>
 
 <body>
@@ -71,7 +71,7 @@
 
                         <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
 
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" class="btn-close  btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
 
                     <div class="offcanvas-body">
@@ -82,16 +82,16 @@
                             </li>
 
                             <li class="nav-item border-top">
-                                <a class="nav-link" href="motivational-content/motivational_type_selection.html">My
+                                <a class="nav-link" href="/motivational-content/motivational_type_selection.html">My
                                     motivation</a>
                             </li>
 
                             <li class="nav-item border-top">
-                                <a class="nav-link" href="./account/settings.html">My settings</a>
+                                <a class="nav-link" href="/account/settings.html">My settings</a>
                             </li>
 
                             <li class="nav-item border-top">
-                                <a aria-current="page" class="nav-link active" href="location.html">Explore locations</a>
+                                <a aria-current="page" class="nav-link active" href="/locationworkouts/location.html">Explore locations</a>
                             </li>
 
                             <li class="nav-item border-top">
@@ -106,19 +106,89 @@
     </header>
 
 
+    <h1>Thanks for your review 😀<span id="WorkoutName"></span></h1>
 
-
-    <!-- Beach workouts -->
-    <div class="wrapper">
-        <div class="one"> <iframe id="beachone" width="420" height="315" src="">
-        </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('homeone')">Write a review</a> </div>
-        <div class="two"> <iframe id="beachworktwo" width="420" height="315" src="">
-        </iframe> <a href="reviews.html" class="link-primary" onclick="setWorkoutData('hometwo')">Write a review</a></div>
-        <div class="three"> <iframe id="beachthree" width="420" height="315" src="">
-        </iframe>
-            <a href="reviews.html" class="link-primary" onclick="setWorkoutData('homethree')"> Write a review</a></div>
-
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Workout review</label>
+            <input type="text" class="form-control" id="title" placeholder="Title">
+        </div><br>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Recommend this workout?</label>
+            <select class="form-control" id="recommend">
+                <option>Yes</option>
+                <option>No</option>
+            </select>
+            <br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Which target muscle are you focusing on?</label>
+                <select class="form-control" id="target">
+                    <option>Lower body</option>
+                    <option>Upper Body</option>
+                   
+                </select>
+                <br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Any other comments?</label>
+                <textarea class="form-control" id="description" rows="3"></textarea>
+            </div>
+        </div>
+    </form>
+    <br>
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
     </div>
 
 
+
+    <script>
+        let WorkoutID = localStorage.getItem("WorkoutID");
+
+
+
+        function writeReview() {
+
+            console.log("inside");
+
+            let Title = document.getElementById("title").value;
+            let Recommend = document.getElementById("recommend").value;
+            let Target = document.getElementById("target").value;
+            let Description = document.getElementById("description").value;
+
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid);
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            // Start a new collection and add all data in it.
+                            db.collection("Reviews").add({
+                                code: WorkoutID,
+                                UserID: userID,
+                                UserEmail: userEmail,
+                                Title: Title,
+                                Target: Target,
+                                Recommend: Recommend,
+                                Description: Description
+
+                            }).then(() => {
+                                window.location.assign("/locationworkouts/Review_success.html");
+                            })
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
+                }
+            });
+
+        }
+    </script>
 </body>
+
+</html>

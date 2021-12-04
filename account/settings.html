@@ -2,243 +2,234 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Fitness4all</title>
-  <meta name="comp1800 boilerplate code" content="my bcit project">
-  <meta name="author" content="BCIT">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Fitness4all</title>
+    <meta name="comp1800 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <!-- Bootstrap Javascript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+    <!-- Bootstrap Javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
-  <!-- Google Icons (Material Design)-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Icons (Material Design)-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Firebase 8 CDN's -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <!-- Firebase 8 CDN's -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
-  <!-- Link to the api keys for your firebase project -->
-  <script src="../scripts/firebaseAPI.js"></script>
+    <!-- Link to the api keys for your firebase project -->
+    <script src="../scripts/firebaseAPI.js"></script>
 
 
-  <!-- Custom Scripts and CSS -->
-  <script src="../scripts/generalScript.js"></script>
-  <link href="../styles/generalStyle.css" rel="stylesheet">
+    <!-- Custom Scripts and CSS -->
+    <script src="../scripts/generalScript.js"></script>
+    <link href="../styles/generalStyle.css" rel="stylesheet">
 </head>
 
 <body>
-  <header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-dark bg-dark fixed-top">
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark fixed-top">
 
-      <div class="container-fluid justify-content-between">
+            <div class="container-fluid justify-content-between">
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-          class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
               0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
         </svg>
 
-        <a href="../index.html"><i class="material-icons">fitness_center</i></a>
+                <a href="../index.html"><i class="material-icons">fitness_center</i></a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
+                <div class="offcanvas offcanvas-top bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
 
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-              class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-left text-light" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 
                   0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" onclick="goBack()" />
             </svg>
 
-            <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
+                        <h5 class="offcanvas-title text-white text-center" id="offcanvasNavbarLabel">Fitness4all</h5>
 
-            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
-          </div>
+                    </div>
 
-          <div class="offcanvas-body">
-            <!-- Hamburger Menu -->
-            <ul class="navbar-nav flex-grow-1 pe-3">
+                    <div class="offcanvas-body">
+                        <!-- Hamburger Menu -->
+                        <ul class="navbar-nav flex-grow-1 pe-3">
 
-              <li class="nav-item">
-                <a class="nav-link" href="../main.html">My work-out</a>
-              </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../main.html">My work-out</a>
+                            </li>
 
-              <li class="nav-item border-top">
-                <a class="nav-link" href="../motivational_content/motivational_type_selection.html">My
-                  motivation</a>
-              </li>
+                            <li class="nav-item border-top">
+                                <a class="nav-link" href="/motivational_content/motivational_type_selection.html">My
+motivation</a>
+                            </li>
 
-              <li class="nav-item border-top">
-                <a aria-current="page" class="nav-link active" href="../account/settings.html">My settings</a>
-              </li>
+                            <li class="nav-item border-top">
+                                <a aria-current="page" class="nav-link active" href="../account/settings.html">My settings</a>
+                            </li>
 
-              <li class="nav-item border-top">
-                <a class="nav-link" href="../location.html">Explore locations</a>
-              </li>
+                            <li class="nav-item border-top">
+                                <a class="nav-link" href="/locationworkouts/location.html">Explore locations</a>
+                            </li>
 
-              <li class="nav-item border-top">
-                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
-              </li>
+                            <li class="nav-item border-top">
+                                <button type="button" class="btn btn-light" onclick="logOut()">Sign out</button>
+                            </li>
 
-            </ul>
+                        </ul>
 
-          </div>
+                    </div>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
-    </nav>
+        </nav>
 
-  </header>
+    </header>
 
-  <!-- Change Preferences -->
-  <div class="container">
-    <main>
-      <div class="py-5 text-center">
-        <h2>Settings</h2>
-        <p class="lead">You can change your settings anytime. </p>
-      </div>
+    <!-- Change Preferences -->
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <h2>Settings</h2>
+                <p class="lead">You can change your settings anytime. </p>
+            </div>
 
-      <div class="row g-5">
-        <div class="col-md-7 col-lg-8">
-          <form class="needs-validation" novalidate="">
-            <div class="row g-3">
+            <div class="row g-5">
+                <div class="col-md-7 col-lg-8">
+                    <form class="needs-validation" novalidate="">
+                        <div class="row g-3">
 
-              <div class="col-md-5">
-                <label for="name" class="form-label">Your Name</label>
-                <input id="name" class="form-control" type="text" value="Name" aria-label="default input example">
-              </div>
+                            <div class="col-md-5">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input id="name" class="form-control" type="text" value="Name" aria-label="default input example">
+                            </div>
 
-              <div class="col-md-5">
-                <label for="difficulty" class="form-label">Your Workout Difficulty</label>
-                <select class="form-select" id="difficulty">
+                            <div class="col-md-5">
+                                <label for="difficulty" class="form-label">Your Workout Difficulty</label>
+                                <select class="form-select" id="difficulty">
                   <option value="">Choose...</option>
                   <option>Beginner</option>
                   <option>Intermediate</option>
                   <option>Advanced</option>
                 </select>
-                <div class="invalid-feedback">
-                  Please select a level.
-                </div>
-              </div>
+                                <div class="invalid-feedback">
+                                    Please select a level.
+                                </div>
+                            </div>
 
-              <div class="col-md-5">
-                <label for="location" class="form-label">Prefered Location to Work out</label>
-                <select class="form-select" id="location" required="">
+                            <div class="col-md-5">
+                                <label for="location" class="form-label">Prefered Location to Work out</label>
+                                <select class="form-select" id="location" required="">
                   <option value="">Choose...</option>
                   <option>Gym</option>
                   <option>Home</option>
                   <option>Park</option>
                   <option>Beach</option>
                 </select>
-                <div class="invalid-feedback">
-                  Please select location.
-                </div>
-              </div>
-              <div class="col-md-5">
-                <label for="equipment" class="form-label">Equipment Availability</label>
-                <div class="another-form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasEquipment"
-                    value="has equipment">
-                  <label class="form-check-label" for="flexRadioDefault1">
+                                <div class="invalid-feedback">
+                                    Please select location.
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <label for="equipment" class="form-label">Equipment Availability</label>
+                                <div class="another-form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="hasEquipment" value="has equipment">
+                                    <label class="form-check-label" for="flexRadioDefault1">
                     I have all equipment I need
                   </label>
-                </div>
-                <div class="another-form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="noEquipment"
-                    value="no equipment">
-                  <label class="form-check-label" for="flexRadioDefault2">
+                                </div>
+                                <div class="another-form-check">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="noEquipment" value="no equipment">
+                                    <label class="form-check-label" for="flexRadioDefault2">
                     I have no or little equipment
                   </label>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="customRange2" class="form-label">Workouts per week: <span id="valuePerWeek"
+                    style="color: blue;"></span></label>
+                                <input type="range" class="form-range" min="1" max="14" id="rangePerWeek" value="3">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="customRange2" class="form-label">Minutes per workout: <span id="valuePerDay"
+                    style="color: blue;"></span></label>
+                                <input type="range" class="form-range" min="10" max="90" id="rangePerWorkout" value="30">
+                            </div>
+                        </div>
+                    </form>
+
+                    <form>
+                        <label for="equipment" class="form-label">Muscle Focus Areas</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Chest" name="muscleAreas">
+                            <label class="form-check-label" for="Chest">Chest</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Back" name="muscleAreas">
+                            <label class="form-check-label" for="Back">Back</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Arms" name="muscleAreas">
+                            <label class="form-check-label" for="Arms">Arms</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Shoulders" name="muscleAreas">
+                            <label class="form-check-label" for="Shoulders">Shoulders</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Legs" name="muscleAreas">
+                            <label class="form-check-label" for="Legs">Legs</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" value="Calves" name="muscleAreas">
+                            <label class="form-check-label" for="Calves">Calves</label>
+                        </div>
+
+                        <hr class="my-2">
+                    </form>
+
+                    <h3 id="saveAnswer" class="py-3 text-center text-success"></h3>
+                    <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Save</button>
+
                 </div>
-              </div>
-
-              <div class="col-12">
-                <label for="customRange2" class="form-label">Workouts per week: <span id="valuePerWeek"
-                    style="color: blue;"></span></label>
-                <input type="range" class="form-range" min="1" max="14" id="rangePerWeek" value="3">
-              </div>
-
-              <div class="col-12">
-                <label for="customRange2" class="form-label">Minutes per workout: <span id="valuePerDay"
-                    style="color: blue;"></span></label>
-                <input type="range" class="form-range" min="10" max="90" id="rangePerWorkout" value="30">
-              </div>
             </div>
-          </form>
+        </main>
+    </div>
 
-          <form>
-            <label for="equipment" class="form-label">Muscle Focus Areas</label>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Chest" name="muscleAreas">
-              <label class="form-check-label" for="Chest">Chest</label>
+    <!-- Change Preferences -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span class="text-muted">© 2021 DTC-02, BCIT</span>
             </div>
 
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Back" name="muscleAreas">
-              <label class="form-check-label" for="Back">Back</label>
-            </div>
-
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Arms" name="muscleAreas">
-              <label class="form-check-label" for="Arms">Arms</label>
-            </div>
-
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Shoulders" name="muscleAreas">
-              <label class="form-check-label" for="Shoulders">Shoulders</label>
-            </div>
-
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Legs" name="muscleAreas">
-              <label class="form-check-label" for="Legs">Legs</label>
-            </div>
-
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" value="Calves" name="muscleAreas">
-              <label class="form-check-label" for="Calves">Calves</label>
-            </div>
-
-            <hr class="my-2">
-          </form>
-
-          <h3 id="saveAnswer" class="py-3 text-center text-success"></h3>
-          <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="saveUserInfo();">Save</button>
-
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- Change Preferences -->
-  <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
-        <span class="text-muted">© 2021 DTC-02, BCIT</span>
-      </div>
-
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
               fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
               <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 
                   6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 
@@ -247,16 +238,16 @@
                   3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 
                   0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
             </svg></a>
-        </li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                </li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
               fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
               <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75
                   7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 
                   1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 
                   6.75-3.934 6.75-7.951z" />
             </svg></a>
-        </li>
-        <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                </li>
+                <li class="ms-3"><a class="text-muted" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"
               fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
               <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 
                       3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 
@@ -274,12 +265,12 @@
                       0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0
                       1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
             </svg></a>
-        </li>
-      </ul>
-    </footer>
-  </div>
+                </li>
+            </ul>
+        </footer>
+    </div>
 
-  <script src="../scripts/settings.js"></script>
+    <script src="../scripts/settings.js"></script>
 </body>
 
 </html>
