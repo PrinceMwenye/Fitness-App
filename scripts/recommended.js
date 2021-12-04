@@ -1,4 +1,4 @@
-// <!-- Get recommended beach workout (random)  populate recommended workouts page with random workout which has been recommended -->
+// Get recommended beach workout (random)  populate recommended workouts page with random workout which has been recommended 
 
 
 db.collection("Reviews").where("Recommend", "==", "Yes")
