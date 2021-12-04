@@ -222,24 +222,6 @@
 
 
 
-            <script>
-                function displayworkouts() {
-                    db.collection("Hikes").get()
-                        .then(allHikes => {
-                            allHikes.forEach(doc => {
-                                var hikeName = doc.data().name; //gets the name field
-                                var hikeID = doc.data().code; //gets the unique ID field
-                                console.log(hikeID);
-                                document.getElementById(hikeID).innerText = hikeName;
-                            })
-                        })
-                }
-                displayHikes();
-            </script>
-
-
-
-
 
 
 
