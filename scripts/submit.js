@@ -1,7 +1,11 @@
+
+//this function is used to submit user stories along with their credentials
 function writeStory() {
-    //define a variable for the collection you want to create in Firestore to populate data
+    //go to the story collection
     var hikesRef = db.collection("story");
 
+
+    //get user input from the fields displayed on the screen 
     var firstName = document.getElementById('exampleFormControlInput1').value;
     var lastName = document.getElementById('exampleFormControlInput2').value;
     var email = document.getElementById('exampleFormControlInput3').value;
@@ -11,7 +15,8 @@ function writeStory() {
 
 
 
-
+    //create an object containing the fields extracted from the html page
+    //and store that object in the DB
     hikesRef.add({ //add to database, autogen ID
         firstname: firstName + "",
         lastname: lastName + "",
@@ -19,6 +24,8 @@ function writeStory() {
         story: sStoey + ""
     })
 
+
+    //hide the html field elements(i.e., the form) and instead show a "thank you" message
     document.getElementById('exampleFormControlInput1').style.display = "none"
     document.getElementById('exampleFormControlInput2').style.display = "none"
     document.getElementById('exampleFormControlInput3').style.display = "none"
